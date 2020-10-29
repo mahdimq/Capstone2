@@ -1,0 +1,76 @@
+### GET ALL
+GET http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpheWQiLCJlbWFpbCI6InpheWRAZ21haWwuY29tIiwiaXNfYWRtaW4iOnRydWUsImlhdCI6MTYwMzk0NjM0NiwiZXhwIjoxNjAzOTg5NTQ2fQ.3VFthfmkCB0vnQG8TfbdZ9XUpQWY6VAqNl_t1IfkTfQ"
+}
+
+### POST USER ADD NEW USER
+POST http://localhost:3000/users
+Content-Type: application/json
+
+# {
+#   "username": "banana",
+#   "password": "banana",
+#   "firstname": "Banana",
+#   "lastname": "Monkey",
+#   "email": "monkey@banana.com",
+#   "is_admin": false
+# }
+
+# {
+#   "username": "john",
+#   "password": "john",
+#   "firstname": "John",
+#   "lastname": "Conner",
+#   "email": "john@conner.com",
+#   "is_admin": false
+# }
+
+{
+  "username": "zayd",
+  "password": "zayd",
+  "firstname": "Zayd",
+  "lastname": "AbdulQadir",
+  "email": "zayd@gmail.com",
+  "is_admin": true
+}
+### Zayd Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpheWQiLCJlbWFpbCI6InpheWRAZ21haWwuY29tIiwiaXNfYWRtaW4iOnRydWUsImlhdCI6MTYwMzk0NjM0NiwiZXhwIjoxNjAzOTg5NTQ2fQ.3VFthfmkCB0vnQG8TfbdZ9XUpQWY6VAqNl_t1IfkTfQ"
+
+### LOGIN
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "username": "zayd",
+  "password": "zayd"
+}
+
+### UPDATE
+PATCH http://localhost:3000/users/zayd
+Content-Type: application/json
+
+{
+  "firstname": "Zayden",
+  "lastname": "Moonwalker",
+  "email": "zayden@moon.com",
+  "password": "zayd",
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpheWQiLCJlbWFpbCI6InpheWRAZ21haWwuY29tIiwiaXNfYWRtaW4iOnRydWUsImlhdCI6MTYwMzk0NjM0NiwiZXhwIjoxNjAzOTg5NTQ2fQ.3VFthfmkCB0vnQG8TfbdZ9XUpQWY6VAqNl_t1IfkTfQ"
+}
+
+### GET ONE
+GET http://localhost:3000/users/zayd
+Content-Type: application/json
+
+{
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpheWQiLCJlbWFpbCI6InpheWRAZ21haWwuY29tIiwiaXNfYWRtaW4iOnRydWUsImlhdCI6MTYwMzk0NjM0NiwiZXhwIjoxNjAzOTg5NTQ2fQ.3VFthfmkCB0vnQG8TfbdZ9XUpQWY6VAqNl_t1IfkTfQ"
+}
+
+### DELETE USER
+DELETE http://localhost:3000/users/zangooch
+Content-Type: application/json
+
+{
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inphbmdvb2NoIiwiZW1haWwiOiJ6YXlkQGdtYWlsLmNvbSIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2MDM4MzAzODEsImV4cCI6MTYwMzg3MzU4MX0.NuWIAE0XWuNNpcst-xdRifmo7081eh6Y4hW171qi05Q"
+}
