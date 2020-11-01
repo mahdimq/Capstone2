@@ -26,7 +26,7 @@ class Cart {
 			[user_id]
 		);
 
-		console.log(duplicateCheck);
+		console.log('DUPLICATE CHECK', duplicateCheck);
 		// if duplicates found, throw error
 		if (duplicateCheck.rows[0]) {
 			const err = new ExpressError(`Cart already exists`, 409);

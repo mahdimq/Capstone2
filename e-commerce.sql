@@ -34,15 +34,13 @@ CREATE TABLE "address" (
     "country" text   NOT NULL
 );
 
-CREATE TABLE "product" (
+CREATE TABLE "item" (
     "id"  SERIAL  PRIMARY KEY,
-    "name" varchar   NOT NULL,
-    "brand" varchar   NOT NULL,
-    "image" varchar   NOT NULL,
-    "price" int  DEFAULT 0 NOT NULL,
-    "category" text   NOT NULL,
-    "count_in_stock" int  DEFAULT 0 NOT NULL,
-    "description" varchar   NOT NULL
+    "user_id" int   NOT NULL,
+    "cart_id" int   NOT NULL,
+    "order_id" int   NOT NULL,
+    "product_id" int  NOT NULL,
+    "quantity" int DEFAULT 0 NOT NULL
 );
 
 CREATE TABLE "cart" (
@@ -70,11 +68,17 @@ CREATE TABLE "rating" (
 ALTER TABLE "address" ADD CONSTRAINT "fk_address_user_id" FOREIGN KEY("user_id")
 REFERENCES "users" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "cart" ADD CONSTRAINT "fk_cart_user_id" FOREIGN KEY("user_id")
+ALTER TABLE "item" ADD CONSTRAINT "fk_item_user_id" FOREIGN KEY("user_id")
 REFERENCES "users" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "cart" ADD CONSTRAINT "fk_cart_product_id" FOREIGN KEY("product_id")
-REFERENCES "product" ("id") ON DELETE CASCADE;
+ALTER TABLE "item" ADD CONSTRAINT "fk_item_cart_id" FOREIGN KEY("cart_id")
+REFERENCES "cart" ("id") ON DELETE CASCADE;
+
+ALTER TABLE "item" ADD CONSTRAINT "fk_item_order_id" FOREIGN KEY("order_id")
+REFERENCES "order" ("id") ON DELETE CASCADE;
+
+ALTER TABLE "cart" ADD CONSTRAINT "fk_cart_user_id" FOREIGN KEY("user_id")
+REFERENCES "users" ("id") ON DELETE CASCADE;
 
 ALTER TABLE "order" ADD CONSTRAINT "fk_order_user_id" FOREIGN KEY("user_id")
 REFERENCES "users" ("id") ON DELETE CASCADE;
@@ -84,7 +88,4 @@ REFERENCES "cart" ("id") ON DELETE CASCADE;
 
 ALTER TABLE "rating" ADD CONSTRAINT "fk_rating_user_id" FOREIGN KEY("user_id")
 REFERENCES "users" ("id") ON DELETE CASCADE;
-
-ALTER TABLE "rating" ADD CONSTRAINT "fk_rating_product_id" FOREIGN KEY("product_id")
-REFERENCES "product" ("id") ON DELETE CASCADE;
 

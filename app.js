@@ -16,11 +16,13 @@ app.use(morgan('tiny'));
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
 const cartRoutes = require('./routes/carts');
-// const jobsRoutes = require('./routes/jobs');
+const orderRoutes = require('./routes/orders');
+const productRoutes = require('./helpers/productApi');
 
-// app.use('/companies', companiesRoutes);
 app.use('/users', userRoutes);
 app.use('/carts', cartRoutes);
+app.use('/orders', orderRoutes);
+app.use('/api', productRoutes);
 app.use('/', authRoutes);
 
 // CUSTOM 404 NOT FOUND ERROR
