@@ -20,7 +20,7 @@ router.post('/add', ensureLoggedIn, async (req, res, next) => {
 });
 
 // GET MOVIE BY MOVIE ID FROM DATABASE
-router.get('/:id', ensureLoggedIn, async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
 	try {
 		const movie = await Movie.getMovieById(req.params.id);
 		return res.json({ movie });
