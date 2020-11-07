@@ -8,55 +8,45 @@ const app = require('../app');
 const db = require('../db');
 
 // Database DDL (for tests)
-// const DB_TABLES = {
-//   companies: `
-//   CREATE TABLE companies(
-//     handle TEXT PRIMARY KEY,
-//     name TEXT UNIQUE NOT NULL,
-//     num_employees INTEGER,
-//     description TEXT,
-//     logo_url TEXT
-//   )`,
-//   users: `
-//   CREATE TABLE users(
-//     username TEXT PRIMARY KEY,
-//     password TEXT NOT NULL,
-//     first_name TEXT,
-//     last_name TEXT,
-//     email TEXT,
-//     photo_url TEXT,
-//     is_admin BOOLEAN default FALSE
-//   )`,
-//   jobs: `
-//   CREATE TABLE jobs(
-//     id SERIAL PRIMARY KEY,
-//     title TEXT,
-//     salary FLOAT,
-//     equity FLOAT CHECK(equity <= 1.0),
-//     company_handle TEXT NOT NULL REFERENCES companies(handle) ON DELETE CASCADE
-//   )`,
-//   applications: `
-//   CREATE TABLE applications(
-//     username TEXT NOT NULL REFERENCES users(username) ON DELETE CASCADE,
-//     job_id INTEGER  REFERENCES jobs(id) ON DELETE CASCADE,
-//     state TEXT,
-//     created_at TIMESTAMP DEFAULT NOW(),
-//     PRIMARY KEY(username, job_id)
-//   )`
-// };
+const DB_TABLES = {
+	users: `
+  CREATE TABLE users(
+		id PRIMARY KEY
+    username TEXT PRIMARY KEY,
+    password TEXT NOT NULL,
+    firstname TEXT,
+    lastname TEXT,
+    email TEXT
+  )`,
+	movies: `
+  CREATE TABLE movies(
+    id PRIMARY KEY,
+    title TEXT,
+		description TEXT,
+		image TEXT
+		rating DECIMAL
+    user_handle TEXT NOT NULL REFERENCES users(handle) ON DELETE CASCADE
+  )`,
+	watchlist: `
+  CREATE TABLE watchlist(
+		id PRIMARY KEY
+		user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    movie_id INTEGER  NOT NULL REFERENCES movies(id) ON DELETE CASCADE
+    PRIMARY KEY(user_id, movie_id)
+  )`
+};
 
 // global auth variable to store things for all the tests
 const TEST_DATA = {};
 
 async function beforeAllHook() {
-	// try {
-	//   await db.query(DB_TABLES["companies"]);
-	//   await db.query(DB_TABLES["users"]);
-	//   await db.query(DB_TABLES["jobs"]);
-	//   await db.query(DB_TABLES["applications"]);
-	// } catch (error) {
-	//   console.error(error);
-	// }
+	try {
+		await db.query(DB_TABLES['users']);
+		await db.query(DB_TABLES['movies']);
+		await db.query(DB_TABLES['watchlist']);
+	} catch (error) {
+		console.error(error);
+	}
 }
 
 /**
@@ -70,8 +60,8 @@ async function beforeEachHook(TEST_DATA) {
 		// login a user, get a token, store the user ID and token
 		const hashedPassword = await bcrypt.hash('secret', 1);
 		await db.query(
-			`INSERT INTO users (username, password, first_name, last_name, email, is_admin)
-                  VALUES ('test', $1, 'tester', 'mctest', 'test@rithmschool.com', true)`,
+			`INSERT INTO users (username, password, firstname, lastname, email)
+                  VALUES ('test', $1, 'testFirst', 'testLast', 'test@test.com')`,
 			[hashedPassword]
 		);
 
@@ -97,10 +87,9 @@ async function afterEachHook() {
 
 async function afterAllHook() {
 	try {
-		// await db.query("DROP TABLE IF EXISTS applications");
-		// await db.query("DROP TABLE IF EXISTS jobs");
-		// await db.query("DROP TABLE IF EXISTS users");
-		// await db.query("DROP TABLE IF EXISTS companies");
+		await db.query('DROP TABLE IF EXISTS users');
+		await db.query('DROP TABLE IF EXISTS movies');
+		await db.query('DROP TABLE IF EXISTS watchlist');
 		await db.end();
 	} catch (err) {
 		console.error(err);

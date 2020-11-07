@@ -12,7 +12,7 @@ class User {
 	static async authenticate(data) {
 		// try to find the user first
 		const result = await db.query(
-			`SELECT username, email, password, is_admin
+			`SELECT username, email, password
       FROM users
       WHERE username = $1`,
 			[data.username]
@@ -55,10 +55,10 @@ class User {
 
 		const result = await db.query(
 			`INSERT INTO users
-      (username, password, firstname, lastname, email, is_admin)
-      VALUES ($1, $2, $3, $4, $5, $6)
-    	RETURNING username, password, firstname, lastname, email, is_admin`,
-			[data.username, hashedPassword, data.firstname, data.lastname, data.email, data.is_admin]
+      (username, password, firstname, lastname, email)
+      VALUES ($1, $2, $3, $4, $5)
+    	RETURNING username, password, firstname, lastname, email`,
+			[data.username, hashedPassword, data.firstname, data.lastname, data.email]
 		);
 
 		return result.rows[0];
@@ -68,7 +68,7 @@ class User {
 
 	static async findAll() {
 		const result = await db.query(
-			`SELECT id, username, firstname, lastname, email, is_admin
+			`SELECT id, username, firstname, lastname, email
       FROM users
       ORDER BY username`
 		);
@@ -80,7 +80,7 @@ class User {
 
 	static async findOne(username) {
 		const userRes = await db.query(
-			`SELECT username, firstname, lastname, email, is_admin
+			`SELECT username, firstname, lastname, email
       FROM users
       WHERE username = $1`,
 			[username]
@@ -131,7 +131,7 @@ class User {
 	/** Delete given user from database; returns undefined. */
 
 	static async remove(username) {
-		let result = await db.query(
+		const result = await db.query(
 			`DELETE FROM users
       WHERE username = $1
       RETURNING username`,
@@ -139,7 +139,7 @@ class User {
 		);
 
 		if (result.rows.length === 0) {
-			let notFound = new ExpressError(`User with username: '${username}' does not exist`);
+			const notFound = new ExpressError(`User with username: '${username}' does not exist`);
 			notFound.status = 404;
 			throw notFound;
 		}

@@ -15,15 +15,15 @@ app.use(morgan('tiny'));
 
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
-const cartRoutes = require('./routes/carts');
-const orderRoutes = require('./routes/orders');
-const productRoutes = require('./helpers/productApi');
+const watchlistRoutes = require('./routes/watchlist');
+const movieRoutes = require('./routes/movies');
+const apiRoutes = require('./routes/api');
 
 app.use('/users', userRoutes);
-app.use('/carts', cartRoutes);
-app.use('/orders', orderRoutes);
-app.use('/api', productRoutes);
+app.use('/watchlist', watchlistRoutes);
+app.use('/movies', movieRoutes);
 app.use('/', authRoutes);
+app.use('/api', apiRoutes);
 
 // CUSTOM 404 NOT FOUND ERROR
 app.use((req, res, next) => {
