@@ -3,7 +3,7 @@ const Watchlist = require('../models/watchlist');
 const { ensureLoggedIn } = require('../middleware/auth');
 const router = express.Router({ mergeParams: true });
 
-// ADD MOVIE TO WATCHLIST
+// ADD MOVIE TO WATCHLIST /watchlist/:user/add
 router.post('/:user_id/add', ensureLoggedIn, async (req, res, next) => {
 	try {
 		const { user_id } = req.params;
@@ -15,7 +15,7 @@ router.post('/:user_id/add', ensureLoggedIn, async (req, res, next) => {
 	}
 });
 
-// GET MOVIE FROM WATCHLIST
+// GET MOVIE FROM WATCHLIST /watchlist/:user
 router.get('/:user_id', ensureLoggedIn, async (req, res, next) => {
 	try {
 		const movie = await Watchlist.getFromWatchlist(req.params.user_id);
@@ -25,21 +25,12 @@ router.get('/:user_id', ensureLoggedIn, async (req, res, next) => {
 	}
 });
 
-// REMOVE MOVIE FROM WATCHLIST
+// REMOVE MOVIE FROM WATCHLIST /watchlist/:user/:movie
 router.delete('/:user_id/:movie_id', ensureLoggedIn, async (req, res, next) => {
 	try {
 		const { user_id, movie_id } = req.params;
 		const result = await Watchlist.removeFromWatchlist(user_id, movie_id);
 		return res.json({ message: 'Movie removed from watchlist' });
-	} catch (err) {
-		return next(err);
-	}
-});
-
-router.get('/upc', async (req, res, next) => {
-	try {
-		const result = await Watchlist.getUpc();
-		return res.json(result);
 	} catch (err) {
 		return next(err);
 	}

@@ -60,15 +60,6 @@ class Watchlist {
 		);
 		return 'Movie deleted from watchlist';
 	}
-
-	// TEST PRODUCT API
-	static async getUpc() {
-		const result = await axios.get('https://api.upcitemdb.com/prod/trial/lookup', {
-			headers: { 'Content-Type': 'application/json' },
-			params: { upc: '0885909950805' }
-		});
-		return result;
-	}
 }
 
 module.exports = Watchlist;

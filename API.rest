@@ -7,7 +7,7 @@ GET http://localhost:3001/users
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyLmNvbSIsImlhdCI6MTYwNDc0NzQyNywiZXhwIjoxNjA0NzkwNjI3fQ.glBqW_RTyvZoIBCofBdF87JF-St_5rsQ-k-eSD7DjJ0"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyLmNvbSIsImlhdCI6MTYwNDkzNTY1OCwiZXhwIjoxNjA0OTc4ODU4fQ.qQwSotctdHp7yWZD47RgdUl3xRvNoIt7R_lWzhEAxAY"
 }
 
 ### POST ROUTE ADD NEW USER
@@ -45,36 +45,36 @@ POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-  "username": "john",
-  "password": "john"
+  "username": "chicken",
+  "password": "chicken"
 }
 
 ### UPDATE USER
-PATCH http://localhost:3001/users/banana
+PATCH http://localhost:3001/users/chicken
 Content-Type: application/json
 
 {
-  "password": "banana",
-  "firstname": "Banana",
-  "lastname": "UpsideDown",
-  "email": "monkey@test.com",
- "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhbmFuYSIsImVtYWlsIjoibW9ua2V5QGJhbmFuYS5jb20iLCJpYXQiOjE2MDQ1Nzc1MzUsImV4cCI6MTYwNDYyMDczNX0.tV2E3b0IM-1njZfEb6qVHT_BvxitiQDmvlQoTNxT7so"
+  "password": "chicken",
+  "firstname": "Chicken",
+  "lastname": "Shortlegs",
+  "email": "chicken@test.com",
+ "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2MDQ5NDkxOTcsImV4cCI6MTYwNDk5MjM5N30.IY7hN83-PJ0TXMhgZpK15UI-BCStS0yKXfwgK9bHO5c"
 }
 
 ### GET ONE USER
-GET http://localhost:3001/users/banana
+GET http://localhost:3001/users/1
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhbmFuYSIsImVtYWlsIjoibW9ua2V5QGJhbmFuYS5jb20iLCJpYXQiOjE2MDQ1Nzc1MzUsImV4cCI6MTYwNDYyMDczNX0.tV2E3b0IM-1njZfEb6qVHT_BvxitiQDmvlQoTNxT7so"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyLmNvbSIsImlhdCI6MTYwNDkzNTY1OCwiZXhwIjoxNjA0OTc4ODU4fQ.qQwSotctdHp7yWZD47RgdUl3xRvNoIt7R_lWzhEAxAY"
 }
 
 ### DELETE SINGLE USER
-DELETE http://localhost:3001/users/chicken
+DELETE http://localhost:3001/users/1
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inphbmdvb2NoIiwiZW1haWwiOiJ6YXlkQGdtYWlsLmNvbSIsImlzX2FkbWluIjp0cnVlLCJpYXQiOjE2MDM4MzAzODEsImV4cCI6MTYwMzg3MzU4MX0.NuWIAE0XWuNNpcst-xdRifmo7081eh6Y4hW171qi05Q"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2MDQ5NDkxOTcsImV4cCI6MTYwNDk5MjM5N30.IY7hN83-PJ0TXMhgZpK15UI-BCStS0yKXfwgK9bHO5c"
 }
 
 ####################################################################
@@ -86,44 +86,49 @@ POST http://localhost:3001/movies/add
 Content-Type: application/json
 
 {
-  "id": 337401,
-  "title": "Mulan",
-  "description": "When the Emperor of China issues a decree that one man per family must serve in the Imperial Chinese Army to defend the country from Huns, Hua Mulan, the eldest daughter of an honored warrior, steps in to take the place of her ailing father. She is spirited, determined and quick on her feet. Disguised as a man by the name of Hua Jun, she is tested every step of the way and must harness her innermost strength and embrace her true potential.",
-  "image": "https://api.themoviedb.org/3/movies/337401/images/zzWGRw277MNoCs3zhyG3YmYQsXv.jpg",
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyLmNvbSIsImlhdCI6MTYwNDc0NzQyNywiZXhwIjoxNjA0NzkwNjI3fQ.glBqW_RTyvZoIBCofBdF87JF-St_5rsQ-k-eSD7DjJ0"
+  "title": "Gabriel's Inferno Part II",
+    "description": "Professor Gabriel Emerson finally learns the truth about Julia Mitchell's identity, but his realization comes a moment too late. Julia is done waiting for the well-respected Dante specialist to remember her and wants nothing more to do with him. Can Gabriel win back her heart before she finds love in another's arms?",
+    "rating": 8.9,
+    "id": 724089,
+    "image": "/jtAI6OJIWLWiRItNSZoWjrsUtmi.jpg",
+    "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2MDQ5NDkxOTcsImV4cCI6MTYwNDk5MjM5N30.IY7hN83-PJ0TXMhgZpK15UI-BCStS0yKXfwgK9bHO5c"
 }
 
 ### GET MOVIE BY ID FROM DATABASE
-GET http://localhost:3001/movies/337401
+GET http://localhost:3001/movies/724089
 Content-Type: application/json
+
+{
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDQ5NTMwNTIsImV4cCI6MTYwNDk5NjI1Mn0.sWbv0H05-6X-IK3EtdaqPlJW2hoGHt8d2GGl6_7aAtY"
+}
 
 ####################################################################
 #************************* WATCHLIST ROUTES ************************
 ####################################################################
 
 ### ADD MOVIE TO WATCHLIST (TOKEN REQUIRED)
-POST http://localhost:3001/watchlist/3/add
+POST http://localhost:3001/watchlist/2/add
 Content-Type: application/json
 
 {
-  "movie_id": 337401,
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyLmNvbSIsImlhdCI6MTYwNDc0NzQyNywiZXhwIjoxNjA0NzkwNjI3fQ.glBqW_RTyvZoIBCofBdF87JF-St_5rsQ-k-eSD7DjJ0"
+  "movie_id": 724089,
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDQ5NTMwNTIsImV4cCI6MTYwNDk5NjI1Mn0.sWbv0H05-6X-IK3EtdaqPlJW2hoGHt8d2GGl6_7aAtY"
 }
 
 ### GET MOVIE FROM WATCHLIST (TOKEN REQUIRED)
-GET http://localhost:3001/watchlist/1
+GET http://localhost:3001/watchlist/2
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyLmNvbSIsImlhdCI6MTYwNDc0NzQyNywiZXhwIjoxNjA0NzkwNjI3fQ.glBqW_RTyvZoIBCofBdF87JF-St_5rsQ-k-eSD7DjJ0"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2MDQ5NDkxOTcsImV4cCI6MTYwNDk5MjM5N30.IY7hN83-PJ0TXMhgZpK15UI-BCStS0yKXfwgK9bHO5c"
 }
 
 ### REMOVE MOVIE FROM WATCHLIST (TOKEN REQUIRED)
-DELETE http://localhost:3001/watchlist/3/337401
+DELETE http://localhost:3001/watchlist/1/68787980
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyLmNvbSIsImlhdCI6MTYwNDc0NzQyNywiZXhwIjoxNjA0NzkwNjI3fQ.glBqW_RTyvZoIBCofBdF87JF-St_5rsQ-k-eSD7DjJ0"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDQ5NTMwNTIsImV4cCI6MTYwNDk5NjI1Mn0.sWbv0H05-6X-IK3EtdaqPlJW2hoGHt8d2GGl6_7aAtY"
 }
 
 ####################################################################
@@ -139,9 +144,21 @@ GET http://localhost:3001/api/toprated
 Content-Type: application/json
 
 ### GET MOVIES BY CATEGORY (comedy, action)
-GET http://localhost:3001/api/action
+GET http://localhost:3001/api/comedy
+Content-Type: application/json
+
+### GET MOVIES BY ID
+GET http://localhost:3001/api/337401
 Content-Type: application/json
 
 ### GET SIMILAR MOVIES BY ID
-GET http://localhost:3001/api/337401
+GET http://localhost:3001/api/similar/337401
+Content-Type: application/json
+
+# {
+#   "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyLmNvbSIsImlhdCI6MTYwNDc0NzQyNywiZXhwIjoxNjA0NzkwNjI3fQ.glBqW_RTyvZoIBCofBdF87JF-St_5rsQ-k-eSD7DjJ0"
+# }
+
+### SEARCH FOR A MOVIE
+GET http://localhost:3001/api/search?query=terminator
 Content-Type: application/json

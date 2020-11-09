@@ -78,18 +78,18 @@ class User {
 
 	/** Given a username, return data about user. */
 
-	static async findOne(username) {
+	static async findOne(id) {
 		const userRes = await db.query(
 			`SELECT username, firstname, lastname, email
       FROM users
-      WHERE username = $1`,
-			[username]
+      WHERE id = $1`,
+			[id]
 		);
 
 		const user = userRes.rows[0];
 
 		if (!user) {
-			const error = new ExpressError(`User with username: '${username}' does not exist`);
+			const error = new ExpressError(`User with id: '${id}' does not exist`);
 			error.status = 404; // 404 NOT FOUND
 			throw error;
 		}
@@ -130,16 +130,16 @@ class User {
 
 	/** Delete given user from database; returns undefined. */
 
-	static async remove(username) {
+	static async remove(id) {
 		const result = await db.query(
 			`DELETE FROM users
-      WHERE username = $1
+      WHERE id = $1
       RETURNING username`,
-			[username]
+			[id]
 		);
 
 		if (result.rows.length === 0) {
-			const notFound = new ExpressError(`User with username: '${username}' does not exist`);
+			const notFound = new ExpressError(`User with id: '${id}' does not exist`);
 			notFound.status = 404;
 			throw notFound;
 		}

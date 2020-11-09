@@ -30,6 +30,6 @@ CREATE TABLE "watchlist" (
   "movie_id" int
 );
 
-ALTER TABLE "watchlist" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
+ALTER TABLE "watchlist" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "watchlist" ADD FOREIGN KEY ("movie_id") REFERENCES "movies" ("id");
+ALTER TABLE "watchlist" ADD FOREIGN KEY ("movie_id") REFERENCES "movies" ("id") ON DELETE CASCADE;

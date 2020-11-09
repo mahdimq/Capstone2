@@ -62,11 +62,11 @@ router.get('/latest', async (req, res, next) => {
 	}
 });
 
-// get similar movies
-router.get('/similar', async (req, res, next) => {
+// GET SIMILAR MOVIES
+router.get('/similar/:id', async (req, res, next) => {
 	try {
-		console.log('REQUEST: ', req.body.movie_id);
-		const result = await MovieApi.getSimilar(req.body.movie_id);
+		console.log('REQUEST: ', req.params.id); //<---
+		const result = await MovieApi.getSimilar(req.params.id);
 		return res.json(result);
 	} catch (err) {
 		return next(err);
@@ -76,8 +76,19 @@ router.get('/similar', async (req, res, next) => {
 // GET BY ID
 router.get('/:id', async (req, res, next) => {
 	try {
-		console.log(req.params.id);
 		const result = await MovieApi.getById(req.params.id);
+		return res.json(result);
+	} catch (err) {
+		return next(err);
+	}
+});
+
+// SEARCH MOVIE BY QUERY
+// NEED TO FIND SOLUTION FOR THIS
+router.get('/search/:search', async (req, res, next) => {
+	try {
+		console.log('THIS IS THE QUERY SEARCHED FOR: ', req.params.search);
+		const result = await MovieApi.search(req.params.search);
 		return res.json(result);
 	} catch (err) {
 		return next(err);

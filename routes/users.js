@@ -11,6 +11,7 @@ const { ensureLoggedIn, isAuthenticated } = require('../middleware/auth');
 
 /** GET / => {users: [user, ...]} */
 
+// GET ALL USERS /user/
 router.get('/', isAuthenticated, async function (req, res, next) {
 	try {
 		const users = await User.findAll();
@@ -21,10 +22,10 @@ router.get('/', isAuthenticated, async function (req, res, next) {
 });
 
 /** GET /[username] => {user: user} */
-
-router.get('/:username', isAuthenticated, async function (req, res, next) {
+// GET A SINGLE USER BY ID /user/:id
+router.get('/:id', async function (req, res, next) {
 	try {
-		const user = await User.findOne(req.params.username);
+		const user = await User.findOne(req.params.id);
 		return res.json({ user });
 	} catch (err) {
 		return next(err);
@@ -32,7 +33,7 @@ router.get('/:username', isAuthenticated, async function (req, res, next) {
 });
 
 /** POST / {userdata}  => {token: token} */
-
+// REGISTER A USER /user/
 router.post('/', async function (req, res, next) {
 	try {
 		delete req.body._token;
@@ -55,7 +56,7 @@ router.post('/', async function (req, res, next) {
 });
 
 /** PATCH /[handle] {userData} => {user: updatedUser} */
-
+// UPDATE A SINGLE USER /user/:username
 router.patch('/:username', ensureLoggedIn, async function (req, res, next) {
 	try {
 		if ('username' in req.body || 'is_admin' in req.body) {
@@ -82,11 +83,11 @@ router.patch('/:username', ensureLoggedIn, async function (req, res, next) {
 });
 
 /** DELETE /[handle]  =>  {message: "User deleted"}  */
-
-router.delete('/:username', ensureLoggedIn, async function (req, res, next) {
+// DELETE A SINGLE USER users/:id
+router.delete('/:id', async function (req, res, next) {
 	try {
-		await User.remove(req.params.username);
-		return res.json({ message: `User: ${req.params.username} has been deleted` });
+		await User.remove(req.params.id);
+		return res.json({ message: `User: ${req.params.id} has been deleted` });
 	} catch (err) {
 		return next(err);
 	}
