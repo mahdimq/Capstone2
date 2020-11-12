@@ -11,8 +11,9 @@ class User {
 
 	static async authenticate(data) {
 		// try to find the user first
+		debugger;
 		const result = await db.query(
-			`SELECT username, email, password
+			`SELECT id, username, email, password
       FROM users
       WHERE username = $1`,
 			[data.username]
@@ -36,6 +37,7 @@ class User {
 	/** Register user with data. Returns new user data. */
 
 	static async register(data) {
+		debugger;
 		const duplicateCheck = await db.query(
 			`SELECT username, email
       FROM users
@@ -57,7 +59,7 @@ class User {
 			`INSERT INTO users
       (username, password, firstname, lastname, email)
       VALUES ($1, $2, $3, $4, $5)
-    	RETURNING username, password, firstname, lastname, email`,
+    	RETURNING id, username, firstname, lastname, email`,
 			[data.username, hashedPassword, data.firstname, data.lastname, data.email]
 		);
 
@@ -80,7 +82,7 @@ class User {
 
 	static async findOne(id) {
 		const userRes = await db.query(
-			`SELECT username, firstname, lastname, email
+			`SELECT id, username, firstname, lastname, email
       FROM users
       WHERE id = $1`,
 			[id]

@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 // add logging system
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 app.use(morgan('tiny'));
 
 const userRoutes = require('./routes/users');

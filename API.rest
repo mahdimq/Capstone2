@@ -7,7 +7,7 @@ GET http://localhost:3001/users
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhbmFuYSIsImVtYWlsIjoibW9ua2V5QGJhbmFuYS5jb20iLCJpYXQiOjE2MDUxNzc2NjEsImV4cCI6MTYwNTIyMDg2MX0.nBcA81T4_rCyK5MQZ7FP_qF804CTYSvCdbDzKtsrPnw"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhbmFuYSIsImVtYWlsIjoibW9ua2V5QGJhbmFuYS5jb20iLCJpYXQiOjE2MDUyMDkyOTYsImV4cCI6MTYwNTI1MjQ5Nn0.GfeR1I1yXKIqJoOn9wDWFOG0d_ShLLjpdQxhbDfsulI"
 }
 
 ### POST ROUTE ADD NEW USER
@@ -43,12 +43,12 @@ POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-  "username": "john",
-  "password": "john"
+  "username": "banana",
+  "password": "banana"
 }
 
 ### UPDATE USER
-PATCH http://localhost:3001/users/4
+PATCH http://localhost:3001/users/5
 Content-Type: application/json
 
 {
@@ -56,15 +56,15 @@ Content-Type: application/json
   "firstname": "Chicken",
   "lastname": "Shortlegs",
   "email": "chicken@test.com",
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDUxNzUyNzEsImV4cCI6MTYwNTIxODQ3MX0.rRHZssTMWkzpzidRENAmuRSnuT1LAMJy0vOJEl4Ib68"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhbmFuYSIsImVtYWlsIjoibW9ua2V5QGJhbmFuYS5jb20iLCJpYXQiOjE2MDUyMDkyOTYsImV4cCI6MTYwNTI1MjQ5Nn0.GfeR1I1yXKIqJoOn9wDWFOG0d_ShLLjpdQxhbDfsulI"
 }
 
 ### GET ONE USER
-GET http://localhost:3001/users/3
+GET http://localhost:3001/users/5
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyIiwiaWF0IjoxNjA1MTc4NzAwLCJleHAiOjE2MDUyMjE5MDB9.lyLMpZ_NZxSRfUEbZM2XDQWw4ZfN3OE1POZd5DTC-JY"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhbmFuYSIsImVtYWlsIjoibW9ua2V5QGJhbmFuYS5jb20iLCJpYXQiOjE2MDUyMDkyOTYsImV4cCI6MTYwNTI1MjQ5Nn0.GfeR1I1yXKIqJoOn9wDWFOG0d_ShLLjpdQxhbDfsulI"
 }
 
 ### DELETE SINGLE USER
@@ -72,7 +72,7 @@ DELETE http://localhost:3001/users/2
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDUxMDEwMDUsImV4cCI6MTYwNTE0NDIwNX0.QU6uD14vgUS2BFD5Wlk0WjIVC2YpW6uGNNVAAQaVcLs"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhbmFuYSIsImVtYWlsIjoibW9ua2V5QGJhbmFuYS5jb20iLCJpYXQiOjE2MDUxNzc2NjEsImV4cCI6MTYwNTIyMDg2MX0.nBcA81T4_rCyK5MQZ7FP_qF804CTYSvCdbDzKtsrPnw"
 }
 
 ####################################################################
