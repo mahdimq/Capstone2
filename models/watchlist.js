@@ -58,7 +58,7 @@ class Watchlist {
 			AND movie_id = $2`,
 			[user_id, movie_id]
 		);
-		return 'Movie deleted from watchlist';
+		return 'Movie deleted from watchlist'; //<-- Fix error showing message even when user doesn't exist
 	}
 }
 

@@ -16,7 +16,9 @@ const isAuthenticated = (req, res, next) => {
 		const tokenStr = req.body._token || req.query._token;
 		const payload = jwt.verify(tokenStr, SECRET);
 		if (!payload) return new ExpressError('Invalid Token', 401);
-		req.id = payload;
+		req.id = payload.id;
+		req.username = payload.username;
+		req.email = payload.email;
 		return next();
 	} catch (err) {
 		return next(new ExpressError('You must authenticate first.', 401));
@@ -39,7 +41,11 @@ const ensureLoggedIn = (req, res, next) => {
 		const payload = jwt.verify(tokenStr, SECRET);
 		if (!payload) return new ExpressError('Invalid Token', 401);
 		req.id = payload.id;
-		if (payload.id === req.params.id) {
+		req.username = payload.username;
+		req.email = payload.email;
+		console.log('PAYLOAD-ID: ', payload.id);
+
+		if (payload.id === +req.params.id) {
 			return next();
 		}
 		// throw an error, so we catch it in our catch, below
@@ -57,19 +63,21 @@ const ensureLoggedIn = (req, res, next) => {
  * If not, raises Unauthorized.
  *
  */
-const ensureIsAdmin = (req, res, next) => {
-	try {
-		const tokenStr = req.body._token || req.query._token;
-		const payload = jwt.verify(tokenStr, SECRET);
-		req.id = payload.id;
+// const ensureIsAdmin = (req, res, next) => {
+// 	try {
+// 		const tokenStr = req.body._token || req.query._token;
+// 		const payload = jwt.verify(tokenStr, SECRET);
+// 		req.id = payload.id;
+// 		req.username = payload.username;
+// 		req.email = payload.email;
 
-		if (payload.is_admin || payload.id === req.params.id) {
-			return next();
-		}
-		throw new ExpressError('You are not an admin');
-	} catch (err) {
-		return next(new ExpressError('Must be an admin to access this!', 401));
-	}
-};
+// 		if (payload.is_admin || payload.id === req.params.id) {
+// 			return next();
+// 		}
+// 		throw new ExpressError('You are not an admin');
+// 	} catch (err) {
+// 		return next(new ExpressError('Must be an admin to access this!', 401));
+// 	}
+// };
 
-module.exports = { isAuthenticated, ensureLoggedIn, ensureIsAdmin };
+module.exports = { isAuthenticated, ensureLoggedIn };

@@ -28,4 +28,14 @@ router.get('/:id', isAuthenticated, async (req, res, next) => {
 	}
 });
 
+// GET ALL MOVIES FROM DATABASE /movies/
+router.get('/', isAuthenticated, async (req, res, next) => {
+	try {
+		const movie = await Movie.getAllMovies();
+		return res.json(movie);
+	} catch (err) {
+		return next(err);
+	}
+});
+
 module.exports = router;

@@ -32,6 +32,15 @@ class Movie {
 		return result.rows[0];
 	}
 
+	// Get all movies
+	static async getAllMovies() {
+		const result = await db.query(`SELECT * FROM movies ORDER BY title`);
+		// if movie not found, throw error
+		if (!result) throw new ExpressError('Movie not found in DB', 404);
+
+		return result.rows;
+	}
+
 	// ###########################################################################
 	// **** Find out how to remove movie from DB once the movie has been removed
 	// **** from the watchlist, and does not exist for any user's watchlist.

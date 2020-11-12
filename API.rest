@@ -7,74 +7,72 @@ GET http://localhost:3001/users
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyLmNvbSIsImlhdCI6MTYwNDkzNTY1OCwiZXhwIjoxNjA0OTc4ODU4fQ.qQwSotctdHp7yWZD47RgdUl3xRvNoIt7R_lWzhEAxAY"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhbmFuYSIsImVtYWlsIjoibW9ua2V5QGJhbmFuYS5jb20iLCJpYXQiOjE2MDUxNzc2NjEsImV4cCI6MTYwNTIyMDg2MX0.nBcA81T4_rCyK5MQZ7FP_qF804CTYSvCdbDzKtsrPnw"
 }
 
 ### POST ROUTE ADD NEW USER
 POST http://localhost:3001/users
 Content-Type: application/json
 
-# {
-#   "username": "banana",
-#   "password": "banana",
-#   "firstname": "Banana",
-#   "lastname": "Monkey",
-#   "email": "monkey@banana.com"
-# }
+{
+  "username": "banana",
+  "password": "banana",
+  "firstname": "Banana",
+  "lastname": "Monkey",
+  "email": "monkey@banana.com"
+}
 
 # {
 #   "username": "john",
 #   "password": "john",
 #   "firstname": "John",
 #   "lastname": "Conner",
-#   "email": "john@conner.com",
-#   "is_admin": false
+#   "email": "john@conner.com"
 # }
 
-{
-  "username": "chicken",
-  "password": "chicken",
-  "firstname": "Chicken",
-  "lastname": "LongLegs",
-  "email": "test@test.com",
-  "is_admin": true
-}
+# {
+#   "username": "chicken",
+#   "password": "chicken",
+#   "firstname": "Chicken",
+#   "lastname": "LongLegs",
+#   "email": "test@test.com"
+# }
 
 ### LOGIN ROUTE
 POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-  "username": "chicken",
-  "password": "chicken"
+  "username": "john",
+  "password": "john"
 }
 
 ### UPDATE USER
-PATCH http://localhost:3001/users/chicken
+PATCH http://localhost:3001/users/4
 Content-Type: application/json
 
 {
-  "password": "chicken",
+  "password": "banana",
   "firstname": "Chicken",
   "lastname": "Shortlegs",
   "email": "chicken@test.com",
- "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2MDQ5NDkxOTcsImV4cCI6MTYwNDk5MjM5N30.IY7hN83-PJ0TXMhgZpK15UI-BCStS0yKXfwgK9bHO5c"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDUxNzUyNzEsImV4cCI6MTYwNTIxODQ3MX0.rRHZssTMWkzpzidRENAmuRSnuT1LAMJy0vOJEl4Ib68"
 }
 
 ### GET ONE USER
-GET http://localhost:3001/users/1
+GET http://localhost:3001/users/3
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyLmNvbSIsImlhdCI6MTYwNDkzNTY1OCwiZXhwIjoxNjA0OTc4ODU4fQ.qQwSotctdHp7yWZD47RgdUl3xRvNoIt7R_lWzhEAxAY"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyIiwiaWF0IjoxNjA1MTc4NzAwLCJleHAiOjE2MDUyMjE5MDB9.lyLMpZ_NZxSRfUEbZM2XDQWw4ZfN3OE1POZd5DTC-JY"
 }
 
 ### DELETE SINGLE USER
-DELETE http://localhost:3001/users/1
+DELETE http://localhost:3001/users/2
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2MDQ5NDkxOTcsImV4cCI6MTYwNDk5MjM5N30.IY7hN83-PJ0TXMhgZpK15UI-BCStS0yKXfwgK9bHO5c"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDUxMDEwMDUsImV4cCI6MTYwNTE0NDIwNX0.QU6uD14vgUS2BFD5Wlk0WjIVC2YpW6uGNNVAAQaVcLs"
 }
 
 ####################################################################
@@ -85,21 +83,37 @@ Content-Type: application/json
 POST http://localhost:3001/movies/add
 Content-Type: application/json
 
+# {
+#   "title": "Roald Dahl's The Witches",
+#     "description": "In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered.",
+#     "rating": 7,
+#     "id": 531219,
+#     "image": "/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
+#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDUwNzg5MTQsImV4cCI6MTYwNTEyMjExNH0.x1lYE93GskST1lbE0UBTLjMe8rL1aRAuc_5mS11lMNQ"
+# }
 {
-  "title": "Gabriel's Inferno Part II",
-    "description": "Professor Gabriel Emerson finally learns the truth about Julia Mitchell's identity, but his realization comes a moment too late. Julia is done waiting for the well-respected Dante specialist to remember her and wants nothing more to do with him. Can Gabriel win back her heart before she finds love in another's arms?",
-    "rating": 8.9,
-    "id": 724089,
-    "image": "/jtAI6OJIWLWiRItNSZoWjrsUtmi.jpg",
-    "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2MDQ5NDkxOTcsImV4cCI6MTYwNDk5MjM5N30.IY7hN83-PJ0TXMhgZpK15UI-BCStS0yKXfwgK9bHO5c"
+  "title": "Test movie added to DB",
+    "description": "Lorem ipsum",
+    "rating": 7,
+    "id": 1234,
+    "image": "/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
+    "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDUwNzg5MTQsImV4cCI6MTYwNTEyMjExNH0.x1lYE93GskST1lbE0UBTLjMe8rL1aRAuc_5mS11lMNQ"
 }
 
 ### GET MOVIE BY ID FROM DATABASE
-GET http://localhost:3001/movies/724089
+GET http://localhost:3001/movies/531219
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDQ5NTMwNTIsImV4cCI6MTYwNDk5NjI1Mn0.sWbv0H05-6X-IK3EtdaqPlJW2hoGHt8d2GGl6_7aAtY"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDUwNzg5MTQsImV4cCI6MTYwNTEyMjExNH0.x1lYE93GskST1lbE0UBTLjMe8rL1aRAuc_5mS11lMNQ"
+}
+
+### GET ALL MOVIES FROM DATABASE
+GET http://localhost:3001/movies/
+Content-Type: application/json
+
+{
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDUwNzg5MTQsImV4cCI6MTYwNTEyMjExNH0.x1lYE93GskST1lbE0UBTLjMe8rL1aRAuc_5mS11lMNQ"
 }
 
 ####################################################################
@@ -111,8 +125,8 @@ POST http://localhost:3001/watchlist/2/add
 Content-Type: application/json
 
 {
-  "movie_id": 724089,
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDQ5NTMwNTIsImV4cCI6MTYwNDk5NjI1Mn0.sWbv0H05-6X-IK3EtdaqPlJW2hoGHt8d2GGl6_7aAtY"
+  "movie_id": 531219,
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDUwNzg5MTQsImV4cCI6MTYwNTEyMjExNH0.x1lYE93GskST1lbE0UBTLjMe8rL1aRAuc_5mS11lMNQ"
 }
 
 ### GET MOVIE FROM WATCHLIST (TOKEN REQUIRED)
@@ -120,15 +134,16 @@ GET http://localhost:3001/watchlist/2
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2MDQ5NDkxOTcsImV4cCI6MTYwNDk5MjM5N30.IY7hN83-PJ0TXMhgZpK15UI-BCStS0yKXfwgK9bHO5c"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDUwNzg5MTQsImV4cCI6MTYwNTEyMjExNH0.x1lYE93GskST1lbE0UBTLjMe8rL1aRAuc_5mS11lMNQ"
 }
 
+
 ### REMOVE MOVIE FROM WATCHLIST (TOKEN REQUIRED)
-DELETE http://localhost:3001/watchlist/1/68787980
+DELETE http://localhost:3001/watchlist/2/1234
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDQ5NTMwNTIsImV4cCI6MTYwNDk5NjI1Mn0.sWbv0H05-6X-IK3EtdaqPlJW2hoGHt8d2GGl6_7aAtY"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDUwNzg5MTQsImV4cCI6MTYwNTEyMjExNH0.x1lYE93GskST1lbE0UBTLjMe8rL1aRAuc_5mS11lMNQ"
 }
 
 ####################################################################
@@ -148,7 +163,7 @@ GET http://localhost:3001/api/comedy
 Content-Type: application/json
 
 ### GET MOVIES BY ID
-GET http://localhost:3001/api/337401
+GET http://localhost:3001/api/531219
 Content-Type: application/json
 
 ### GET SIMILAR MOVIES BY ID

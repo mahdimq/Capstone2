@@ -20,10 +20,9 @@ const { SECRET } = require('../config');
 
 const getToken = (user) => {
 	let payload = {
-		_id: user._id,
+		id: user.id,
 		username: user.username,
-		email: user.email,
-		is_admin: user.is_admin
+		email: user.email
 	};
 	return jwt.sign(payload, SECRET, { expiresIn: '12h' });
 };

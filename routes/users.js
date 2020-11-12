@@ -23,7 +23,7 @@ router.get('/', isAuthenticated, async function (req, res, next) {
 
 /** GET /[username] => {user: user} */
 // GET A SINGLE USER BY ID /user/:id
-router.get('/:id', async function (req, res, next) {
+router.get('/:id', ensureLoggedIn, async function (req, res, next) {
 	try {
 		const user = await User.findOne(req.params.id);
 		return res.json({ user });
@@ -57,13 +57,15 @@ router.post('/', async function (req, res, next) {
 
 /** PATCH /[handle] {userData} => {user: updatedUser} */
 // UPDATE A SINGLE USER /user/:username
-router.patch('/:username', ensureLoggedIn, async function (req, res, next) {
+router.patch('/:id', ensureLoggedIn, async function (req, res, next) {
 	try {
-		if ('username' in req.body || 'is_admin' in req.body) {
+		console.log('REQUEST.BODY :', req.body);
+		if ('id' in req.body) {
 			return next({ status: 400, message: 'Not allowed' });
 		}
 		await User.authenticate({
-			username: req.params.username,
+			id: req.params.id,
+			username: req.body.username,
 			password: req.body.password
 		});
 		delete req.body.password;
@@ -75,7 +77,7 @@ router.patch('/:username', ensureLoggedIn, async function (req, res, next) {
 			});
 		}
 
-		const user = await User.update(req.params.username, req.body);
+		const user = await User.update(req.params.id, req.body);
 		return res.json({ user });
 	} catch (err) {
 		return next(err);
@@ -84,7 +86,7 @@ router.patch('/:username', ensureLoggedIn, async function (req, res, next) {
 
 /** DELETE /[handle]  =>  {message: "User deleted"}  */
 // DELETE A SINGLE USER users/:id
-router.delete('/:id', async function (req, res, next) {
+router.delete('/:id', ensureLoggedIn, async function (req, res, next) {
 	try {
 		await User.remove(req.params.id);
 		return res.json({ message: `User: ${req.params.id} has been deleted` });
