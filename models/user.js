@@ -37,7 +37,6 @@ class User {
 	/** Register user with data. Returns new user data. */
 
 	static async register(data) {
-		debugger;
 		const duplicateCheck = await db.query(
 			`SELECT username, email
       FROM users
@@ -108,24 +107,23 @@ class User {
 	 *
 	 */
 
-	static async update(username, data) {
+	static async update(id, data) {
 		if (data.password) {
 			data.password = await bcrypt.hash(data.password, BCRYPT_WORK_FACTOR);
 		}
 
-		let { query, values } = partialUpdate('users', data, 'username', username);
+		let { query, values } = partialUpdate('users', data, 'id', id);
 
 		const result = await db.query(query, values);
 		const user = result.rows[0];
 
 		if (!user) {
-			let notFound = new ExpressError(`User with username: '${username}' does not exist`);
+			let notFound = new ExpressError(`User with id: '${id}' does not exist`);
 			notFound.status = 404;
 			throw notFound;
 		}
 
 		delete user.password;
-		delete user.is_admin;
 
 		return result.rows[0];
 	}

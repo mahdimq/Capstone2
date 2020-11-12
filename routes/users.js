@@ -49,11 +49,6 @@ router.post('/', async function (req, res, next) {
 
 		const newUser = await User.register(req.body);
 		const token = getToken(newUser);
-		console.log('#########################');
-		console.log('#########################');
-		console.log(newUser);
-		console.log('#########################');
-		console.log('#########################');
 		return res.status(201).json({ token });
 	} catch (e) {
 		return next(e);
@@ -62,7 +57,7 @@ router.post('/', async function (req, res, next) {
 
 /** PATCH /[handle] {userData} => {user: updatedUser} */
 // UPDATE A SINGLE USER /user/:username
-router.patch('/:id', ensureLoggedIn, async function (req, res, next) {
+router.patch('/:id', async function (req, res, next) {
 	try {
 		console.log('REQUEST.BODY :', req.body);
 		if ('id' in req.body) {

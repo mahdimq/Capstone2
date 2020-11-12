@@ -19,9 +19,6 @@ const isAuthenticated = (req, res, next) => {
 		req.id = payload.id;
 		req.username = payload.username;
 		req.email = payload.email;
-		console.log('PAYLOAD-ID: ', payload.id);
-		console.log('PAYLOAD: ', payload);
-		console.log('REQ.ID: ', req.id);
 		return next();
 	} catch (err) {
 		return next(new ExpressError('You must authenticate first.', 401));
@@ -46,11 +43,6 @@ const ensureLoggedIn = (req, res, next) => {
 		req.id = payload.id;
 		req.username = payload.username;
 		req.email = payload.email;
-		console.log('PAYLOAD-ID: ', payload.id);
-		console.log('PAYLOAD: ', payload);
-		console.log('REQ.ID: ', req.id);
-		console.log('REQ.BODY._TOKEN: ', req.body._token);
-		console.log('REQ.QUERY._TOKEN: ', req.query._token);
 
 		if (payload.id === +req.params.id) {
 			return next();
