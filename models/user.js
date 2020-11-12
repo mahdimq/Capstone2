@@ -11,12 +11,11 @@ class User {
 
 	static async authenticate(data) {
 		// try to find the user first
-		debugger;
 		const result = await db.query(
 			`SELECT id, username, email, password
       FROM users
-      WHERE username = $1`,
-			[data.username]
+      WHERE username = $1 OR id = $2`,
+			[data.username, data.id]
 		);
 
 		const user = result.rows[0];
@@ -79,18 +78,18 @@ class User {
 
 	/** Given a username, return data about user. */
 
-	static async findOne(id) {
+	static async findOne(user_id) {
 		const userRes = await db.query(
 			`SELECT id, username, firstname, lastname, email
       FROM users
       WHERE id = $1`,
-			[id]
+			[user_id]
 		);
 
 		const user = userRes.rows[0];
 
 		if (!user) {
-			const error = new ExpressError(`User with id: '${id}' does not exist`);
+			const error = new ExpressError(`User with id: '${user_id}' does not exist`);
 			error.status = 404; // 404 NOT FOUND
 			throw error;
 		}

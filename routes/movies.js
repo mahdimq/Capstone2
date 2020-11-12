@@ -1,6 +1,6 @@
 const express = require('express');
 const Movie = require('../models/movie');
-const { ensureLoggedIn, isAuthenticated } = require('../middleware/auth');
+const { isAuthenticated } = require('../middleware/auth');
 const router = express.Router({ mergeParams: true });
 
 // ######################################################
@@ -8,7 +8,7 @@ const router = express.Router({ mergeParams: true });
 // ######################################################
 
 // ADD NEW MOVIE TO DATABASE /movies/add
-router.post('/add', ensureLoggedIn, isAuthenticated, async (req, res, next) => {
+router.post('/add', isAuthenticated, async (req, res, next) => {
 	try {
 		const { id, title, description, image, rating } = req.body;
 		const movie = await Movie.addMovie(id, title, description, image, rating);
@@ -19,9 +19,9 @@ router.post('/add', ensureLoggedIn, isAuthenticated, async (req, res, next) => {
 });
 
 // GET MOVIE BY MOVIE ID FROM DATABASE /movies/:user
-router.get('/:id', isAuthenticated, async (req, res, next) => {
+router.get('/:user_id', isAuthenticated, async (req, res, next) => {
 	try {
-		const movie = await Movie.getMovieById(req.params.id);
+		const movie = await Movie.getMovieById(req.params.user_id);
 		return res.json({ movie });
 	} catch (err) {
 		return next(err);

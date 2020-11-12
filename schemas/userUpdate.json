@@ -38,6 +38,13 @@
 			"title": "The Email Schema ",
 			"default": "",
 			"examples": ["john@conner.com"]
+		},
+		"_token": {
+			"$id": "/properties/token",
+			"type": "string",
+			"title": "The Token Schema ",
+			"default": "",
+			"examples": ["foo123"]
 		}
 	}
 }

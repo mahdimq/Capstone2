@@ -23,9 +23,9 @@ router.get('/', isAuthenticated, async function (req, res, next) {
 
 /** GET /[username] => {user: user} */
 // GET A SINGLE USER BY ID /user/:id
-router.get('/:id', ensureLoggedIn, async function (req, res, next) {
+router.get('/:user_id', ensureLoggedIn, async function (req, res, next) {
 	try {
-		const user = await User.findOne(req.params.id);
+		const user = await User.findOne(req.params.user_id);
 		return res.json({ user });
 	} catch (err) {
 		return next(err);
@@ -57,17 +57,17 @@ router.post('/', async function (req, res, next) {
 
 /** PATCH /[handle] {userData} => {user: updatedUser} */
 // UPDATE A SINGLE USER /user/:username
-router.patch('/:id', async function (req, res, next) {
+router.patch('/:user_id', async function (req, res, next) {
 	try {
-		console.log('REQUEST.BODY :', req.body);
 		if ('id' in req.body) {
 			return next({ status: 400, message: 'Not allowed' });
 		}
+
 		await User.authenticate({
-			id: req.params.id,
-			username: req.body.username,
+			id: req.params.user_id,
 			password: req.body.password
 		});
+
 		delete req.body.password;
 		const validation = validate(req.body, userUpdateSchema);
 		if (!validation.valid) {
@@ -77,7 +77,7 @@ router.patch('/:id', async function (req, res, next) {
 			});
 		}
 
-		const user = await User.update(req.params.id, req.body);
+		const user = await User.update(req.params.user_id, req.body);
 		return res.json({ user });
 	} catch (err) {
 		return next(err);
@@ -86,10 +86,10 @@ router.patch('/:id', async function (req, res, next) {
 
 /** DELETE /[handle]  =>  {message: "User deleted"}  */
 // DELETE A SINGLE USER users/:id
-router.delete('/:id', ensureLoggedIn, async function (req, res, next) {
+router.delete('/:user_id', ensureLoggedIn, async function (req, res, next) {
 	try {
-		await User.remove(req.params.id);
-		return res.json({ message: `User: ${req.params.id} has been deleted` });
+		await User.remove(req.params.user_id);
+		return res.json({ message: `User: ${req.params.user_id} has been deleted` });
 	} catch (err) {
 		return next(err);
 	}

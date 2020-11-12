@@ -16,7 +16,7 @@ router.post('/:user_id/add', ensureLoggedIn, async (req, res, next) => {
 });
 
 // GET MOVIE FROM WATCHLIST /watchlist/:user
-router.get('/:user_id', ensureLoggedIn, async (req, res, next) => {
+router.get('/:user_id', async (req, res, next) => {
 	try {
 		const movie = await Watchlist.getFromWatchlist(req.params.user_id);
 		return res.json(movie);

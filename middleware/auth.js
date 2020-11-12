@@ -44,7 +44,7 @@ const ensureLoggedIn = (req, res, next) => {
 		req.username = payload.username;
 		req.email = payload.email;
 
-		if (payload.id === +req.params.id) {
+		if (payload.id === +req.params.user_id) {
 			return next();
 		}
 		// throw an error, so we catch it in our catch, below
