@@ -57,11 +57,21 @@ class MovieApi {
 		return film;
 	}
 
+	// Get Movie credits by movie ID
+	static async getMovieCredits(movie_id) {
+		const result = await axios.get(`${BASE_URL}/movie/${movie_id}/credits`, {
+			params: { api_key: API, movie_id, include_image_language: 'en' }
+		});
+		const film = result.data;
+		return film;
+	}
+
 	// Get Top Rated
 	static async getTopRated() {
 		const result = await axios.get(`${BASE_URL}/${topRated}`, {
 			params: { api_key: API }
 		});
+		return result.data;
 	}
 
 	// Get Trending

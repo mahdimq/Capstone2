@@ -166,13 +166,9 @@ Content-Type: application/json
 GET http://localhost:3001/api/531219
 Content-Type: application/json
 
-### GET SIMILAR MOVIES BY ID
-GET http://localhost:3001/api/similar/337401
+### GET MOVIE CREDIT BY ID
+GET http://localhost:3001/api/credits/531219
 Content-Type: application/json
-
-# {
-#   "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJlbWFpbCI6ImpvaG5AY29ubmVyLmNvbSIsImlhdCI6MTYwNDc0NzQyNywiZXhwIjoxNjA0NzkwNjI3fQ.glBqW_RTyvZoIBCofBdF87JF-St_5rsQ-k-eSD7DjJ0"
-# }
 
 ### SEARCH FOR A MOVIE
 GET http://localhost:3001/api/search?query=terminator

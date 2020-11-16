@@ -95,4 +95,13 @@ router.get('/search/:search', async (req, res, next) => {
 	}
 });
 
+// GET MOVIE CREDITS BY MOVIE ID
+router.get('/credits/:id', async (req, res, next) => {
+	try {
+		const result = await MovieApi.getMovieCredits(req.params.id);
+		return res.json(result);
+	} catch (err) {
+		return next(err);
+	}
+});
 module.exports = router;
