@@ -171,5 +171,5 @@ GET http://localhost:3001/api/credits/531219
 Content-Type: application/json
 
 ### SEARCH FOR A MOVIE
-GET http://localhost:3001/api/search?query=terminator
+GET http://localhost:3001/api/search/terminator
 Content-Type: application/json

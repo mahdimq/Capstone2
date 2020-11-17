@@ -85,10 +85,10 @@ router.get('/:id', async (req, res, next) => {
 
 // SEARCH MOVIE BY QUERY
 // NEED TO FIND SOLUTION FOR THIS
-router.get('/search/:search', async (req, res, next) => {
+router.get('/search/:query', async (req, res, next) => {
 	try {
-		console.log('THIS IS THE QUERY SEARCHED FOR: ', req.params.search);
-		const result = await MovieApi.search(req.params.search);
+		console.log('THIS IS THE QUERY SEARCHED FOR: ', req.params.query);
+		const result = await MovieApi.search(req.params.query);
 		return res.json(result);
 	} catch (err) {
 		return next(err);

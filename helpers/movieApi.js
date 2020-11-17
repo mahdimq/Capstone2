@@ -35,7 +35,7 @@ class MovieApi {
 	// Get Popular
 	static async getPopular() {
 		const result = await axios.get(`${BASE_URL}/${popular}`, {
-			params: { api_key: API, total_results: 5 }
+			params: { api_key: API }
 		});
 		return result.data;
 	}
@@ -100,9 +100,9 @@ class MovieApi {
 
 	// Search Movies
 	// NEED TO FIND SOLUTION FOR THIS
-	static async search() {
+	static async search(query) {
 		const result = await axios.get(`${BASE_URL}/${search}`, {
-			params: { api_key: API, language: 'en', include_adult: false }
+			params: { api_key: API, query, language: 'en', include_adult: false }
 		});
 		return result.data;
 	}
