@@ -7,7 +7,7 @@ GET http://localhost:3001/users
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhbmFuYSIsImVtYWlsIjoibW9ua2V5QGJhbmFuYS5jb20iLCJpYXQiOjE2MDUyMDkyOTYsImV4cCI6MTYwNTI1MjQ5Nn0.GfeR1I1yXKIqJoOn9wDWFOG0d_ShLLjpdQxhbDfsulI"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
 }
 
 ### POST ROUTE ADD NEW USER
@@ -43,8 +43,8 @@ POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-  "username": "john",
-  "password": "john"
+  "username": "test",
+  "password": "test"
 }
 
 ### UPDATE USER
@@ -60,19 +60,16 @@ Content-Type: application/json
 }
 
 ### GET ONE USER
-GET http://localhost:3001/users/6
+GET http://localhost:3001/users/15
 Content-Type: application/json
 
-{
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJqb2huIiwiZW1haWwiOiJqb2huQGNvbm5lci5jb20iLCJpYXQiOjE2MDUyMTMwMjAsImV4cCI6MTYwNTI1NjIyMH0.N2G5MeBhAl1hNRV0-C45xSbQbIX4N08T4nXRfy6Tlx4"
-}
 
 ### DELETE SINGLE USER
-DELETE http://localhost:3001/users/5
+DELETE http://localhost:3001/users/25
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA1MjEzMjc2LCJleHAiOjE2MDUyNTY0NzZ9.ldsTxASWrFnV6cxZWNUTq6Oba8igWpQePBx1AENhS2I"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTYwNjMwMTkzNywiZXhwIjoxNjA2MzQ1MTM3fQ.us5xfUpR51PNzREY0sLwxE5pJKvekl6o18B-0jdRXxY"
 }
 
 ####################################################################
@@ -89,15 +86,40 @@ Content-Type: application/json
 #     "rating": 7,
 #     "id": 531219,
 #     "image": "/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
-#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoaWNrZW4iLCJlbWFpbCI6ImNoaWNrZW5AdGVzdC5jb20iLCJpYXQiOjE2MDUwNzg5MTQsImV4cCI6MTYwNTEyMjExNH0.x1lYE93GskST1lbE0UBTLjMe8rL1aRAuc_5mS11lMNQ"
+#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
+# }
+
+# {
+#   "title": "The Shawshank Redemption",
+#     "description": "Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.",
+#     "rating": 8.7,
+#     "id": 278,
+#     "image": "/5KCVkau1HEl7ZzfPsKAPM0sMiKc.jpg",
+#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
+# }
+# {
+#   "title": "Schindler's List",
+#     "description": "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.",
+#     "rating": 8.6,
+#     "id": 424,
+#     "image": "/c8Ass7acuOe4za6DhSattE359gr.jpg",
+#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
+# }
+# {
+#   "title": "Terminator: Dark Fate",
+#     "description": "Decades after Sarah Connor prevented Judgment Day, a lethal new Terminator is sent to eliminate the future leader of the resistance. In a fight to save mankind, battle-hardened Sarah Connor teams up with an unexpected ally and an enhanced super soldier to stop the deadliest Terminator yet.",
+#     "rating": 6.5,
+#     "id": 290859,
+#     "image": "/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg",
+#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
 # }
 {
-  "title": "ANOTHER TEST movie added to DB",
-    "description": "Lorem ipsum",
-    "rating": 7,
-    "id": 99999,
-    "image": "/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
-    "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJqb2huIiwiZW1haWwiOiJqb2huQGNvbm5lci5jb20iLCJpYXQiOjE2MDUyMTQzMzYsImV4cCI6MTYwNTI1NzUzNn0.OJrD4b0ZqqT_sOXyUWn55k72kjVuLVsOHlu--vWakNo"
+  "title": "Terminator 2: Judgment Day",
+    "description": "Decades after Sarah Connor prevented Judgment Day, a lethal new Terminator is sent to eliminate the future leader of the resistance. In a fight to save mankind, battle-hardened Sarah Connor teams up with an unexpected ally and an enhanced super soldier to stop the deadliest Terminator yet.",
+    "rating": 8,
+    "id": 8697,
+    "image": "/5M0j0B18abtBI5gi2RhfjjurTqb.jpg",
+    "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
 }
 
 ### GET MOVIE BY ID FROM DATABASE
@@ -105,7 +127,7 @@ GET http://localhost:3001/movies/99999
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJqb2huIiwiZW1haWwiOiJqb2huQGNvbm5lci5jb20iLCJpYXQiOjE2MDUyMTQzMzYsImV4cCI6MTYwNTI1NzUzNn0.OJrD4b0ZqqT_sOXyUWn55k72kjVuLVsOHlu--vWakNo"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjIyMTY3OSwiZXhwIjoxNjA2MjY0ODc5fQ.QmC8LxWIAlEomhq6yGkbpomFqR_bxv5hkCoS0DUH2C8"
 }
 
 ### GET ALL MOVIES FROM DATABASE
@@ -113,7 +135,7 @@ GET http://localhost:3001/movies/
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJqb2huIiwiZW1haWwiOiJqb2huQGNvbm5lci5jb20iLCJpYXQiOjE2MDUyMTQzMzYsImV4cCI6MTYwNTI1NzUzNn0.OJrD4b0ZqqT_sOXyUWn55k72kjVuLVsOHlu--vWakNo"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
 }
 
 ####################################################################
@@ -121,16 +143,16 @@ Content-Type: application/json
 ####################################################################
 
 ### ADD MOVIE TO WATCHLIST (TOKEN REQUIRED)
-POST http://localhost:3001/watchlist/6/add
+POST http://localhost:3001/watchlist/21/add
 Content-Type: application/json
 
 {
-  "movie_id": 531219,
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJqb2huIiwiZW1haWwiOiJqb2huQGNvbm5lci5jb20iLCJpYXQiOjE2MDUyMTY5MDEsImV4cCI6MTYwNTI2MDEwMX0.bqSU4rN5JAeAYzI8QigiUQIHMix00cUNj4c5BxMPR0E"
+  "movie_id": 424,
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsInVzZXJuYW1lIjoiamFuZSIsImVtYWlsIjoiamFuZUBkb2UuY29tIiwiaWF0IjoxNjA2MjkwMTE0LCJleHAiOjE2MDYzMzMzMTR9.aLoSelb-TUh2JQ73kSlvayBzxb3LjpY_dPola0_7c_4"
 }
 
 ### GET MOVIE FROM WATCHLIST (TOKEN REQUIRED)
-GET http://localhost:3001/watchlist/6
+GET http://localhost:3001/watchlist/20
 Content-Type: application/json
 
 {

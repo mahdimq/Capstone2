@@ -50,7 +50,7 @@ const ensureLoggedIn = (req, res, next) => {
 		// throw an error, so we catch it in our catch, below
 		throw new Error();
 	} catch (err) {
-		const unauthorized = new ExpressError('Unauthorized, token required!', 401);
+		const unauthorized = new ExpressError('Unauthorized, invalid token!', 401);
 		return next(unauthorized);
 	}
 };

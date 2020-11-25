@@ -18,10 +18,10 @@ router.post('/add', isAuthenticated, async (req, res, next) => {
 	}
 });
 
-// GET MOVIE BY MOVIE ID FROM DATABASE /movies/:user
-router.get('/:user_id', isAuthenticated, async (req, res, next) => {
+// GET MOVIE BY MOVIE ID FROM DATABASE /movies/:movie
+router.get('/:movie_id', isAuthenticated, async (req, res, next) => {
 	try {
-		const movie = await Movie.getMovieById(req.params.user_id);
+		const movie = await Movie.getMovieById(req.params.movie_id);
 		return res.json({ movie });
 	} catch (err) {
 		return next(err);
