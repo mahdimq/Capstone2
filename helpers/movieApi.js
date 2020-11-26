@@ -33,9 +33,9 @@ class MovieApi {
 	}
 
 	// Get Popular
-	static async getPopular() {
+	static async getPopular(page) {
 		const result = await axios.get(`${BASE_URL}/${popular}`, {
-			params: { api_key: API }
+			params: { api_key: API, page }
 		});
 		return result.data;
 	}

@@ -7,7 +7,7 @@ GET http://localhost:3001/users
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInVzZXJuYW1lIjoicG9wZSIsImVtYWlsIjoicGlua0BkZW1vLmNvbSIsImlhdCI6MTYwNjM3NzAwMiwiZXhwIjoxNjA2NDIwMjAyfQ.msTpKjiqw6cgjqmT31LNXvXBsNaWQ8s5pubSJjx7QY0"
 }
 
 ### POST ROUTE ADD NEW USER
@@ -43,8 +43,8 @@ POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-  "username": "test",
-  "password": "test"
+  "username": "billy",
+  "password": "billy"
 }
 
 ### UPDATE USER
@@ -60,16 +60,19 @@ Content-Type: application/json
 }
 
 ### GET ONE USER
-GET http://localhost:3001/users/15
-Content-Type: application/json
-
-
-### DELETE SINGLE USER
-DELETE http://localhost:3001/users/25
+GET http://localhost:3001/users/31
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTYwNjMwMTkzNywiZXhwIjoxNjA2MzQ1MTM3fQ.us5xfUpR51PNzREY0sLwxE5pJKvekl6o18B-0jdRXxY"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzEsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTYwNjM4MTEzNywiZXhwIjoxNjA2NDI0MzM3fQ.piYkf_1q3tLG6AIwmZV20BvcxeDyk8HaZ9EKZ8gXr5s"
+}
+
+### DELETE SINGLE USER
+DELETE http://localhost:3001/users/29
+Content-Type: application/json
+
+{
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInVzZXJuYW1lIjoicG9wZSIsImVtYWlsIjoicG9wZUBkZW1vLmNvbSIsImlhdCI6MTYwNjM3OTMzMSwiZXhwIjoxNjA2NDIyNTMxfQ.dOyqVTNwV_bbudhghFSDK3jHnUoFnvCVMjwVzEX_mwY"
 }
 
 ####################################################################
@@ -135,7 +138,15 @@ GET http://localhost:3001/movies/
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjMzNjE5NywiZXhwIjoxNjA2Mzc5Mzk3fQ.dt5kiDqchuugJe-3xcPvufPLpA9euWXPVDebzf9PPDA"
+}
+
+### REMOVE MOVIE BY ID FROM DATABASE
+DELETE http://localhost:3001/movies/741074
+Content-Type: application/json
+
+{
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInVzZXJuYW1lIjoiYmlsbHkiLCJlbWFpbCI6ImJpbGx5QGdvbGRlbnN3b3JkLmNvbSIsImlhdCI6MTYwNjQyMzA1NywiZXhwIjoxNjA2NDY2MjU3fQ.QvuPEGWzViARd9EgCCAJsAVyK1xDg5PDyCjFuSZFQnI"
 }
 
 ####################################################################
@@ -156,7 +167,7 @@ GET http://localhost:3001/watchlist/20
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJqb2huIiwiZW1haWwiOiJqb2huQGNvbm5lci5jb20iLCJpYXQiOjE2MDUyMTY5MDEsImV4cCI6MTYwNTI2MDEwMX0.bqSU4rN5JAeAYzI8QigiUQIHMix00cUNj4c5BxMPR0E"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjMzNjE5NywiZXhwIjoxNjA2Mzc5Mzk3fQ.dt5kiDqchuugJe-3xcPvufPLpA9euWXPVDebzf9PPDA"
 }
 
 

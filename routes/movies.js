@@ -38,4 +38,14 @@ router.get('/', isAuthenticated, async (req, res, next) => {
 	}
 });
 
+// REMOVE MOVIE FROM DATABASE BY ID /movies/:movie
+router.delete('/:movie_id', isAuthenticated, async (req, res, next) => {
+	try {
+		await Movie.removeMovieById(req.params.movie_id);
+		return res.json({ message: `Movie with id: ${req.params.movie_id} has been deleted` });
+	} catch (err) {
+		return next(err);
+	}
+});
+
 module.exports = router;
