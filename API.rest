@@ -138,7 +138,7 @@ GET http://localhost:3001/movies/
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjMzNjE5NywiZXhwIjoxNjA2Mzc5Mzk3fQ.dt5kiDqchuugJe-3xcPvufPLpA9euWXPVDebzf9PPDA"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInVzZXJuYW1lIjoiYmlsbHkiLCJlbWFpbCI6ImJpbGx5QGdvbGRlbnN3b3JkLmNvbSIsImlhdCI6MTYwNjQ3OTU4MCwiZXhwIjoxNjA2NTIyNzgwfQ.reFUWM4tK4N1-mlN6aFPjyS3FiKHr0zmq08BsYOLMbA"
 }
 
 ### REMOVE MOVIE BY ID FROM DATABASE
