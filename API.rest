@@ -7,7 +7,7 @@ GET http://localhost:3001/users
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInVzZXJuYW1lIjoicG9wZSIsImVtYWlsIjoicGlua0BkZW1vLmNvbSIsImlhdCI6MTYwNjM3NzAwMiwiZXhwIjoxNjA2NDIwMjAyfQ.msTpKjiqw6cgjqmT31LNXvXBsNaWQ8s5pubSJjx7QY0"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTU4MzQ1LCJleHAiOjE2MDY2MDE1NDV9.bPdbnIWrjhpXPNOhI4qYdoUeNzXkNVElye5JDa1CJ5E"
 }
 
 ### POST ROUTE ADD NEW USER
@@ -43,8 +43,8 @@ POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-  "username": "billy",
-  "password": "billy"
+  "username": "test",
+  "password": "test"
 }
 
 ### UPDATE USER
@@ -83,54 +83,63 @@ Content-Type: application/json
 POST http://localhost:3001/movies/add
 Content-Type: application/json
 
-# {
-#   "title": "Roald Dahl's The Witches",
-#     "description": "In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered.",
-#     "rating": 7,
-#     "id": 531219,
-#     "image": "/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
-#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
-# }
+{
+  "id": 531219,
+  "original_title": "Roald Dahl's The Witches",
+  "overview": "In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered.",
+  "poster_path": "/betExZlgK0l7CZ9CsCBVcwO1OjL.jpg",
+  "vote_average": 7,
+  "runtime": 138,
+  "release_date": "15-07-2020",
+  "backdrop_path": "/gEjNlhZhyHeto6Fy5wWy5Uk3A9D.jpg",
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTYzMzk1LCJleHAiOjE2MDY2MDY1OTV9.Hz_YmZ1QiWnH_Ss1I1bOImz6l2qFBZxxOwMRQ4gCgio"
+}
 
 # {
-#   "title": "The Shawshank Redemption",
-#     "description": "Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.",
-#     "rating": 8.7,
-#     "id": 278,
-#     "image": "/5KCVkau1HEl7ZzfPsKAPM0sMiKc.jpg",
-#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
+#   "original_title": "The Shawshank Redemption",
+#   "overview": "Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.",
+#   "vote_average": 8.7,
+#   "id": 278,
+#   "poster_path": "/5KCVkau1HEl7ZzfPsKAPM0sMiKc.jpg",
+#   "runtime": 138,
+#   "release_date": "2020-07-15",
+#   "backdrop_path": "/gEjNlhZhyHeto6Fy5wWy5Uk3A9D.jpg",
+#   "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTY0ODk4LCJleHAiOjE2MDY2MDgwOTh9.W7QVV8P_zQwhGrLnIod6A26TqBK9MyjA4PHE3LmJtbU"
 # }
+
 # {
 #   "title": "Schindler's List",
 #     "description": "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.",
 #     "rating": 8.6,
-#     "id": 424,
+#     "movie_id": 424,
 #     "image": "/c8Ass7acuOe4za6DhSattE359gr.jpg",
-#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
+#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTY0NDQ5LCJleHAiOjE2MDY2MDc2NDl9.c7sPMXZQazSlzhfpAZoVAMAooZiUVFUXtB_1idG0YN0"
 # }
+
 # {
 #   "title": "Terminator: Dark Fate",
+#     "movie_id": 290859,
 #     "description": "Decades after Sarah Connor prevented Judgment Day, a lethal new Terminator is sent to eliminate the future leader of the resistance. In a fight to save mankind, battle-hardened Sarah Connor teams up with an unexpected ally and an enhanced super soldier to stop the deadliest Terminator yet.",
 #     "rating": 6.5,
-#     "id": 290859,
 #     "image": "/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg",
+#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTUxNjYzLCJleHAiOjE2MDY1OTQ4NjN9.GDcEquM-RLZYBRWhBhxmWu17_QZ8LQZ3n0dlZHYbVuw"
+# }
+
+# {
+#   "title": "Terminator 2: Judgment Day",
+#     "description": "Decades after Sarah Connor prevented Judgment Day, a lethal new Terminator is sent to eliminate the future leader of the resistance. In a fight to save mankind, battle-hardened Sarah Connor teams up with an unexpected ally and an enhanced super soldier to stop the deadliest Terminator yet.",
+#     "rating": 8,
+#     "movie_id": 8697,
+#     "image": "/5M0j0B18abtBI5gi2RhfjjurTqb.jpg",
 #     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
 # }
-{
-  "title": "Terminator 2: Judgment Day",
-    "description": "Decades after Sarah Connor prevented Judgment Day, a lethal new Terminator is sent to eliminate the future leader of the resistance. In a fight to save mankind, battle-hardened Sarah Connor teams up with an unexpected ally and an enhanced super soldier to stop the deadliest Terminator yet.",
-    "rating": 8,
-    "id": 8697,
-    "image": "/5M0j0B18abtBI5gi2RhfjjurTqb.jpg",
-    "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
-}
 
 ### GET MOVIE BY ID FROM DATABASE
-GET http://localhost:3001/movies/99999
+GET http://localhost:3001/movies/531219
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjIyMTY3OSwiZXhwIjoxNjA2MjY0ODc5fQ.QmC8LxWIAlEomhq6yGkbpomFqR_bxv5hkCoS0DUH2C8"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTYzMzk1LCJleHAiOjE2MDY2MDY1OTV9.Hz_YmZ1QiWnH_Ss1I1bOImz6l2qFBZxxOwMRQ4gCgio"
 }
 
 ### GET ALL MOVIES FROM DATABASE
@@ -138,7 +147,7 @@ GET http://localhost:3001/movies/
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInVzZXJuYW1lIjoiYmlsbHkiLCJlbWFpbCI6ImJpbGx5QGdvbGRlbnN3b3JkLmNvbSIsImlhdCI6MTYwNjQ3OTU4MCwiZXhwIjoxNjA2NTIyNzgwfQ.reFUWM4tK4N1-mlN6aFPjyS3FiKHr0zmq08BsYOLMbA"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTUxNjYzLCJleHAiOjE2MDY1OTQ4NjN9.GDcEquM-RLZYBRWhBhxmWu17_QZ8LQZ3n0dlZHYbVuw"
 }
 
 ### REMOVE MOVIE BY ID FROM DATABASE
@@ -154,20 +163,20 @@ Content-Type: application/json
 ####################################################################
 
 ### ADD MOVIE TO WATCHLIST (TOKEN REQUIRED)
-POST http://localhost:3001/watchlist/21/add
+POST http://localhost:3001/watchlist/1/add
 Content-Type: application/json
 
 {
-  "movie_id": 424,
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsInVzZXJuYW1lIjoiamFuZSIsImVtYWlsIjoiamFuZUBkb2UuY29tIiwiaWF0IjoxNjA2MjkwMTE0LCJleHAiOjE2MDYzMzMzMTR9.aLoSelb-TUh2JQ73kSlvayBzxb3LjpY_dPola0_7c_4"
+  "movie_id": 290859,
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTUxNjYzLCJleHAiOjE2MDY1OTQ4NjN9.GDcEquM-RLZYBRWhBhxmWu17_QZ8LQZ3n0dlZHYbVuw"
 }
 
 ### GET MOVIE FROM WATCHLIST (TOKEN REQUIRED)
-GET http://localhost:3001/watchlist/20
+GET http://localhost:3001/watchlist/1
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjMzNjE5NywiZXhwIjoxNjA2Mzc5Mzk3fQ.dt5kiDqchuugJe-3xcPvufPLpA9euWXPVDebzf9PPDA"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTUxNjYzLCJleHAiOjE2MDY1OTQ4NjN9.GDcEquM-RLZYBRWhBhxmWu17_QZ8LQZ3n0dlZHYbVuw"
 }
 
 

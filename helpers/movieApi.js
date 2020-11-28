@@ -27,7 +27,7 @@ class MovieApi {
 			TITLE: film.title,
 			DESCRIPTION: film.overview,
 			RATING: film.vote_average,
-			ID: film.id,
+			MOVIE_ID: film.id,
 			RELEASED: film.release_date
 		}));
 	}

@@ -9,10 +9,29 @@ const router = express.Router({ mergeParams: true });
 
 // ADD NEW MOVIE TO DATABASE /movies/add
 router.post('/add', isAuthenticated, async (req, res, next) => {
+	console.log('REQ.BODY IN ADDMOVIE', req.body);
 	try {
-		const { id, title, description, image, rating } = req.body;
-		const movie = await Movie.addMovie(id, title, description, image, rating);
-		return res.json({ movie });
+		const {
+			id,
+			original_title,
+			overview,
+			poster_path,
+			vote_average,
+			release_date,
+			runtime,
+			backdrop_path
+		} = req.body;
+		const movie = await Movie.addMovie(
+			id,
+			original_title,
+			overview,
+			poster_path,
+			vote_average,
+			release_date,
+			runtime,
+			backdrop_path
+		);
+		return res.json({ movie, message: 'Movie successfully added to DB' });
 	} catch (err) {
 		return next(err);
 	}

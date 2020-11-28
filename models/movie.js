@@ -3,7 +3,16 @@ const ExpressError = require('../helpers/expressError');
 
 class Movie {
 	// Create movies in DB
-	static async addMovie(id = null, title = null, description = null, image = null, rating = null) {
+	static async addMovie(
+		id = null,
+		original_title = null,
+		overview = null,
+		poster_path = null,
+		vote_average = null,
+		release_date = null,
+		runtime = null,
+		backdrop_path = null
+	) {
 		// Check if movie already exists
 		const duplicateMovie = await db.query(`SELECT * FROM movies WHERE id = $1`, [id]);
 		// if movie exists, return that
@@ -14,10 +23,19 @@ class Movie {
 			};
 		// if movie doesn't exist, add it to the DB
 		const result = await db.query(
-			`INSERT INTO movies (id, title, description, image, rating)
-      VALUES ($1, $2, $3, $4, $5)
-      RETURNING id, title, description`,
-			[id, title, description, image, rating]
+			`INSERT INTO movies (id, original_title, overview, poster_path, vote_average, release_date, runtime, backdrop_path)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+      RETURNING id, original_title, overview`,
+			[
+				id,
+				original_title,
+				overview,
+				poster_path,
+				vote_average,
+				release_date,
+				runtime,
+				backdrop_path
+			]
 		);
 		return result.rows[0];
 	}
@@ -34,7 +52,7 @@ class Movie {
 
 	// Get all movies
 	static async getAllMovies() {
-		const result = await db.query(`SELECT * FROM movies ORDER BY title`);
+		const result = await db.query(`SELECT * FROM movies ORDER BY original_title`);
 		// if movie not found, throw error
 		if (!result) throw new ExpressError('Movie not found in DB', 404);
 
@@ -45,7 +63,7 @@ class Movie {
 		const result = await db.query(
 			`DELETE FROM movies
       WHERE id = $1
-      RETURNING title`,
+      RETURNING original_title`,
 			[id]
 		);
 		// if movie not found, throw error

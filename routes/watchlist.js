@@ -7,8 +7,8 @@ const router = express.Router({ mergeParams: true });
 router.post('/:user_id/add', ensureLoggedIn, async (req, res, next) => {
 	try {
 		const { user_id } = req.params;
-		const { movie_id } = req.body;
-		const newMovie = await Watchlist.addToWatchlist(user_id, movie_id);
+		const { id } = req.body;
+		const newMovie = await Watchlist.addToWatchlist(user_id, id);
 		return res.status(201).json({ newMovie });
 	} catch (err) {
 		return next(err);

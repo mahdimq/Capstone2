@@ -38,7 +38,8 @@ class Watchlist {
 		if (!user_id) throw new ExpressError('User not found', 400);
 
 		const result = await db.query(
-			`SELECT m.id, m.title, m.description, m.image
+			// `SELECT
+			`SELECT *
 			FROM movies AS m
 			JOIN watchlist as w
 			ON m.id = w.movie_id
