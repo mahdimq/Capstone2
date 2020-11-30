@@ -38,15 +38,15 @@ class Watchlist {
 		if (!user_id) throw new ExpressError('User not found', 400);
 
 		const result = await db.query(
-			// `SELECT
-			`SELECT *
+			// `SELECT m.id, m.original_title, m.overview, m.poster_path, m.vote_average, m.release_date, m.runtime, m.backdrop_path
+			`SELECT m.*
 			FROM movies AS m
 			JOIN watchlist as w
 			ON m.id = w.movie_id
 			WHERE w.user_id = $1`,
 			[user_id]
 		);
-		if (result.rows.length === 0) throw new ExpressError('No movies found', 400);
+		if (!result) throw new ExpressError('No movies found', 400);
 		return result.rows;
 	}
 
@@ -56,10 +56,12 @@ class Watchlist {
 		const result = await db.query(
 			`DELETE FROM watchlist
 			WHERE user_id = $1
-			AND movie_id = $2`,
+			AND movie_id = $2
+			RETURNING movie_id`,
 			[user_id, movie_id]
 		);
-		return 'Movie deleted from watchlist'; //<-- Fix error showing message even when user doesn't exist
+		if (!result) throw new ExpressError('Watchlist is empty!');
+		return result.rows;
 	}
 }
 
