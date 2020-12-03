@@ -24,7 +24,8 @@ CREATE TABLE "movies" (
   "vote_average" decimal,
   "release_date" varchar,
   "runtime" int,
-  "backdrop_path" varchar
+  "backdrop_path" varchar,
+  "tagline" varchar
 );
 
 CREATE TABLE "watchlist" (

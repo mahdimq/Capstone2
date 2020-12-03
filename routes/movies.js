@@ -19,7 +19,8 @@ router.post('/add', isAuthenticated, async (req, res, next) => {
 			vote_average,
 			release_date,
 			runtime,
-			backdrop_path
+			backdrop_path,
+			tagline
 		} = req.body;
 		const movie = await Movie.addMovie(
 			id,
@@ -29,7 +30,8 @@ router.post('/add', isAuthenticated, async (req, res, next) => {
 			vote_average,
 			release_date,
 			runtime,
-			backdrop_path
+			backdrop_path,
+			tagline
 		);
 		return res.json({ movie, message: 'Movie successfully added to DB' });
 	} catch (err) {

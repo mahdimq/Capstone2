@@ -11,7 +11,8 @@ class Movie {
 		vote_average = null,
 		release_date = null,
 		runtime = null,
-		backdrop_path = null
+		backdrop_path = null,
+		tagline = null
 	) {
 		// Check if movie already exists
 		const duplicateMovie = await db.query(`SELECT * FROM movies WHERE id = $1`, [id]);
@@ -23,8 +24,8 @@ class Movie {
 			};
 		// if movie doesn't exist, add it to the DB
 		const result = await db.query(
-			`INSERT INTO movies (id, original_title, overview, poster_path, vote_average, release_date, runtime, backdrop_path)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+			`INSERT INTO movies (id, original_title, overview, poster_path, vote_average, release_date, runtime, backdrop_path, tagline)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
       RETURNING id, original_title, overview`,
 			[
 				id,
@@ -34,7 +35,8 @@ class Movie {
 				vote_average,
 				release_date,
 				runtime,
-				backdrop_path
+				backdrop_path,
+				tagline
 			]
 		);
 		return result.rows[0];

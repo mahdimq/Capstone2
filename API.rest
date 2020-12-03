@@ -7,7 +7,7 @@ GET http://localhost:3001/users
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTU4MzQ1LCJleHAiOjE2MDY2MDE1NDV9.bPdbnIWrjhpXPNOhI4qYdoUeNzXkNVElye5JDa1CJ5E"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkB0ZXN0LmNvbSIsImlhdCI6MTYwNjkzOTE3MSwiZXhwIjoxNjA2OTgyMzcxfQ.wDg0bWLLJEVSAjJaU-B1cHWlbt3FpNamUwo6vQ4SaXk"
 }
 
 ### POST ROUTE ADD NEW USER
@@ -15,11 +15,11 @@ POST http://localhost:3001/users
 Content-Type: application/json
 
 {
-  "username": "banana",
-  "password": "banana",
+  "username": "john",
+  "password": "john",
   "firstname": "Banana",
   "lastname": "Monkey",
-  "email": "monkey@banana.com"
+  "email": "john@test.com"
 }
 
 # {
@@ -68,11 +68,11 @@ Content-Type: application/json
 }
 
 ### DELETE SINGLE USER
-DELETE http://localhost:3001/users/29
+DELETE http://localhost:3001/users/5
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksInVzZXJuYW1lIjoicG9wZSIsImVtYWlsIjoicG9wZUBkZW1vLmNvbSIsImlhdCI6MTYwNjM3OTMzMSwiZXhwIjoxNjA2NDIyNTMxfQ.dOyqVTNwV_bbudhghFSDK3jHnUoFnvCVMjwVzEX_mwY"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNjA2OTM5MjUxLCJleHAiOjE2MDY5ODI0NTF9.8zqVM1uJDLFKKMwRVZ7iPUgstZuTZo3j_MYOlk2tJXs"
 }
 
 ####################################################################
@@ -92,7 +92,9 @@ Content-Type: application/json
   "runtime": 138,
   "release_date": "15-07-2020",
   "backdrop_path": "/gEjNlhZhyHeto6Fy5wWy5Uk3A9D.jpg",
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTYzMzk1LCJleHAiOjE2MDY2MDY1OTV9.Hz_YmZ1QiWnH_Ss1I1bOImz6l2qFBZxxOwMRQ4gCgio"
+  "genres": [{"id": 28, "name": "Action"}, {"id": 53, "name": "Thriller"}],
+  "tagline": "Take on a madman. Save the world.",
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJqb2huIiwiZW1haWwiOiJqb2huQHRlc3QuY29tIiwiaWF0IjoxNjA2ODUxNzg1LCJleHAiOjE2MDY4OTQ5ODV9.7s6UyHNCIvJOJ5cwh5zcUs8ZRGKVI5_5fQL-p34UEds"
 }
 
 # {
@@ -151,11 +153,11 @@ Content-Type: application/json
 }
 
 ### REMOVE MOVIE BY ID FROM DATABASE
-DELETE http://localhost:3001/movies/741074
+DELETE http://localhost:3001/movies/531219
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzIsInVzZXJuYW1lIjoiYmlsbHkiLCJlbWFpbCI6ImJpbGx5QGdvbGRlbnN3b3JkLmNvbSIsImlhdCI6MTYwNjQyMzA1NywiZXhwIjoxNjA2NDY2MjU3fQ.QvuPEGWzViARd9EgCCAJsAVyK1xDg5PDyCjFuSZFQnI"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJqb2huIiwiZW1haWwiOiJqb2huQGRlbW8uY29tIiwiaWF0IjoxNjA2ODQ5NjAzLCJleHAiOjE2MDY4OTI4MDN9.jlz1CrwxypFMMZf1-X4z1ldl5w6s-VC4iX8dBFfkMGQ"
 }
 
 ####################################################################
