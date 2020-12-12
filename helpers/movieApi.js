@@ -1,13 +1,7 @@
 const axios = require('axios');
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-const IMAGE_URL = 'http://image.tmdb.org/t/p';
-
-const backdrop_size = 'w1280';
-const poster_size = 'w500';
-
 const API = 'a19fde14eb2f33b545cd78125e338397';
-const API2 = '19f84e11932abbc79e6d83f82d6d1045';
 
 const latest = 'movie/latest';
 const topRated = 'movie/top_rated';
@@ -22,20 +16,13 @@ class MovieApi {
 		const result = await axios.get(`${BASE_URL}/${latest}`, {
 			params: { api_key: API, total_results: 5 }
 		});
-		// return result.data.results;
-		return result.data.results.map((film) => ({
-			TITLE: film.title,
-			DESCRIPTION: film.overview,
-			RATING: film.vote_average,
-			MOVIE_ID: film.id,
-			RELEASED: film.release_date
-		}));
+		return result.data.results;
 	}
 
 	// Get Popular
 	static async getPopular(page) {
 		const result = await axios.get(`${BASE_URL}/${popular}`, {
-			params: { api_key: API, page }
+			params: { api_key: API, page, include_adult: false }
 		});
 		return result.data;
 	}
@@ -99,10 +86,9 @@ class MovieApi {
 	}
 
 	// Search Movies
-	// NEED TO FIND SOLUTION FOR THIS
-	static async search(query) {
+	static async search(query, page) {
 		const result = await axios.get(`${BASE_URL}/${search}`, {
-			params: { api_key: API, query, language: 'en', include_adult: false }
+			params: { api_key: API, query, language: 'en', include_adult: false, page }
 		});
 		return result.data;
 	}

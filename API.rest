@@ -7,7 +7,7 @@ GET http://localhost:3001/users
 Content-Type: application/json
 
 {
-  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkB0ZXN0LmNvbSIsImlhdCI6MTYwNjkzOTE3MSwiZXhwIjoxNjA2OTgyMzcxfQ.wDg0bWLLJEVSAjJaU-B1cHWlbt3FpNamUwo6vQ4SaXk"
+  "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJqb2huIiwiZW1haWwiOiJqb2huQGNvbm5lci5jb20iLCJpYXQiOjE2MDc3Nzk0NjEsImV4cCI6MTYwNzgyMjY2MX0.4ijE_vV7S_vFKks-ipkV77dC-wADFawy9ubX98ThkC0"
 }
 
 ### POST ROUTE ADD NEW USER
@@ -17,34 +17,18 @@ Content-Type: application/json
 {
   "username": "john",
   "password": "john",
-  "firstname": "Banana",
-  "lastname": "Monkey",
-  "email": "john@test.com"
+  "firstname": "John",
+  "lastname": "Conner",
+  "email": "john@conner.com"
 }
-
-# {
-#   "username": "john",
-#   "password": "john",
-#   "firstname": "John",
-#   "lastname": "Conner",
-#   "email": "john@conner.com"
-# }
-
-# {
-#   "username": "chicken",
-#   "password": "chicken",
-#   "firstname": "Chicken",
-#   "lastname": "LongLegs",
-#   "email": "test@test.com"
-# }
 
 ### LOGIN ROUTE
 POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-  "username": "test",
-  "password": "test"
+  "username": "john",
+  "password": "john"
 }
 
 ### UPDATE USER
@@ -96,46 +80,6 @@ Content-Type: application/json
   "tagline": "Take on a madman. Save the world.",
   "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJqb2huIiwiZW1haWwiOiJqb2huQHRlc3QuY29tIiwiaWF0IjoxNjA2ODUxNzg1LCJleHAiOjE2MDY4OTQ5ODV9.7s6UyHNCIvJOJ5cwh5zcUs8ZRGKVI5_5fQL-p34UEds"
 }
-
-# {
-#   "original_title": "The Shawshank Redemption",
-#   "overview": "Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.",
-#   "vote_average": 8.7,
-#   "id": 278,
-#   "poster_path": "/5KCVkau1HEl7ZzfPsKAPM0sMiKc.jpg",
-#   "runtime": 138,
-#   "release_date": "2020-07-15",
-#   "backdrop_path": "/gEjNlhZhyHeto6Fy5wWy5Uk3A9D.jpg",
-#   "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTY0ODk4LCJleHAiOjE2MDY2MDgwOTh9.W7QVV8P_zQwhGrLnIod6A26TqBK9MyjA4PHE3LmJtbU"
-# }
-
-# {
-#   "title": "Schindler's List",
-#     "description": "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.",
-#     "rating": 8.6,
-#     "movie_id": 424,
-#     "image": "/c8Ass7acuOe4za6DhSattE359gr.jpg",
-#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTY0NDQ5LCJleHAiOjE2MDY2MDc2NDl9.c7sPMXZQazSlzhfpAZoVAMAooZiUVFUXtB_1idG0YN0"
-# }
-
-# {
-#   "title": "Terminator: Dark Fate",
-#     "movie_id": 290859,
-#     "description": "Decades after Sarah Connor prevented Judgment Day, a lethal new Terminator is sent to eliminate the future leader of the resistance. In a fight to save mankind, battle-hardened Sarah Connor teams up with an unexpected ally and an enhanced super soldier to stop the deadliest Terminator yet.",
-#     "rating": 6.5,
-#     "image": "/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg",
-#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJiYW5hbmEiLCJlbWFpbCI6Im1vbmtleUBiYW5hbmEuY29tIiwiaWF0IjoxNjA2NTUxNjYzLCJleHAiOjE2MDY1OTQ4NjN9.GDcEquM-RLZYBRWhBhxmWu17_QZ8LQZ3n0dlZHYbVuw"
-# }
-
-# {
-#   "title": "Terminator 2: Judgment Day",
-#     "description": "Decades after Sarah Connor prevented Judgment Day, a lethal new Terminator is sent to eliminate the future leader of the resistance. In a fight to save mankind, battle-hardened Sarah Connor teams up with an unexpected ally and an enhanced super soldier to stop the deadliest Terminator yet.",
-#     "rating": 8,
-#     "movie_id": 8697,
-#     "image": "/5M0j0B18abtBI5gi2RhfjjurTqb.jpg",
-#     "_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsInVzZXJuYW1lIjoiam9obiIsImVtYWlsIjoiam9obkBkZW1vLmNvbSIsImlhdCI6MTYwNjI4OTMyMiwiZXhwIjoxNjA2MzMyNTIyfQ.v0oHADgPlCUd6eNbsvKs8P8TYbbPohKKRQyfe6xwqrA"
-# }
-
 ### GET MOVIE BY ID FROM DATABASE
 GET http://localhost:3001/movies/531219
 Content-Type: application/json
@@ -215,5 +159,5 @@ GET http://localhost:3001/api/credits/531219
 Content-Type: application/json
 
 ### SEARCH FOR A MOVIE
-GET http://localhost:3001/api/search/toy+story
+GET http://localhost:3001/api/search/lion+kind
 Content-Type: application/json

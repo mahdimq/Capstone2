@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS movies_db;
-CREATE DATABASE movies_db;
+DROP DATABASE IF EXISTS watchlist_db;
+CREATE DATABASE watchlist_db;
 
-\c movies_db;
+\c watchlist_db;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS movies;

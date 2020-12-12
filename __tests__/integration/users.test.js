@@ -1,60 +1,170 @@
-// process.env.NODE_ENV === 'test';
 const request = require('supertest');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const { SECRET_KEY, BCRYPT_WORK_FACTOR } = require('../../config');
 const app = require('../../app');
+
 const User = require('../../models/user');
-// const db = require('../../db');
-const {TEST_DATA, beforeAllHook, beforeEachHook, afterEachHook, afterAllHook} = require("./config")
 
-// let testUserToken;
-// let testAdminToken;
+process.env.NODE_ENV === 'test';
+const db = require('../../db');
 
-beforeAll(async function () {
-	await beforeAllHook()
+// set up the test:
+let test_user;
+let token;
+beforeEach(async () => {
+	// create a couple of users
+	test_user = {
+		username: 'test1',
+		password: 'password',
+		firstname: 'test_firstname',
+		lastname: 'test_lastname',
+		email: 'test1@demo.com'
+	};
+
+	await User.register(test_user);
 });
 
-beforeEach(async function() {
-	await beforeEachHook(TEST_DATA)
-})
+afterEach(async () => {
+	await db.query('DELETE FROM users');
+});
 
-describe('POST /users', () => {
-	test('Creates a new user', async () => {
-		const data = {
-			email: 'test@test.com',
+afterAll(async () => {
+	await db.end();
+});
+
+describe('Signup a user', () => {
+	test('sign up a user, success', async () => {
+		let test_user2 = {
+			username: 'test2',
 			password: 'password',
-			first_name: 'Tester',
-			last_name: 'Testson',
-			skill_level: 'rookie',
-			image_url: 'www.testurl.com'
+			firstname: 'test_firstname',
+			lastname: 'test_lastname',
+			email: 'test2@demo.com'
 		};
-		const response = await request(app).post('/users').send(data);
-		expect(response.statusCode).toBe(201);
-		expect(response.body).toHaveProperty('token');
-		const testId = jwt.decode(response.body.token).id;
-		const userInDb = await User.findOne(testId);
-		Object.keys(userInDb).forEach((key) => {
-			expect(data[key]).toEqual(userInDb[key]);
-		});
+
+		let result = await request(app).post('/users/').send(test_user2);
+		expect(result.statusCode).toEqual(201);
+		expect(result.body).toEqual(expect.anything());
 	});
-	test('Prevents creating a user with duplicate email', async function () {
-		const response = await request(app).post('/users').send({
-			email: 'user@test.com',
-			password: 'password',
-			first_name: 'Tester',
-			last_name: 'Testson',
-			skill_level: 'rookie',
-			image_url: 'www.testurl.com'
-		});
-		expect(response.statusCode).toBe(409);
-	});
-
-
-
-afterEach(async function () {
-	await afterEachHook();
 });
-afterAll(async function () {
-	await afterAllHook();
+
+describe('/login', () => {
+	test('log in a user, success', async () => {
+		let result = await request(app).post('/login').send({
+			username: test_user.username,
+			password: test_user.password
+		});
+		expect(result.statusCode).toEqual(200);
+		expect(result.body).toEqual(expect.anything());
+	});
+
+	test('log in a user, schema fail, not authenticated', async () => {
+		let result = await request(app).post('/login').send({
+			username: 'username'
+		});
+		expect(result.statusCode).toEqual(401);
+	});
+});
+
+describe('GET/users', () => {
+	test('get users, success', async () => {
+		let res = await request(app).post('/login').send({
+			username: test_user.username,
+			password: test_user.password
+		});
+
+		let result = await request(app).get('/users').send({ _token: res.body.token });
+		expect(result.statusCode).toEqual(200);
+	});
+	test('get users, unauthorized', async () => {
+		let result = await request(app).get('/users').send({});
+		expect(result.statusCode).toEqual(401);
+		expect(result.body).toHaveProperty('error', {
+			message: 'You must authenticate first.',
+			status: 401
+		});
+	});
+});
+
+describe('GET/users/:id', () => {
+	test('get one user, success', async () => {
+		let res = await request(app).post('/login').send({
+			username: test_user.username,
+			password: test_user.password
+		});
+
+		let result = await request(app).get(`/users/${res.body.id}`).send({ _token: res.body.token });
+		expect(result.statusCode).toEqual(200);
+	});
+	test('get user, unauthorized', async () => {
+		let res = await request(app).post('/login').send({
+			username: test_user.username,
+			password: test_user.password
+		});
+
+		let result = await request(app).get(`/users/${res.body.id}`).send({});
+		expect(result.statusCode).toEqual(401);
+		expect(result.body).toHaveProperty('error', {
+			message: 'Unauthorized, invalid token!',
+			status: 401
+		});
+	});
+});
+
+describe('PATCH/users/:id', () => {
+	test("edit a user's username, success", async () => {
+		let res = await request(app).post('/login').send({
+			username: test_user.username,
+			password: test_user.password
+		});
+		let result = await request(app).patch(`/users/${res.body.id}`).send({
+			firstname: 'newTestFirstname',
+			password: test_user.password,
+			_token: res.body.token
+		});
+
+		expect(result.statusCode).toEqual(200);
+		expect(result.body.user.firstname).toEqual('newTestFirstname');
+	});
+
+	test("edit a user's , schema fail", async () => {
+		let res = await request(app).post('/login').send({
+			username: test_user.username,
+			password: test_user.password
+		});
+
+		let result = await request(app).patch(`/users/${res.body.id}`).send({
+			firstname: 'fakeFirstname',
+			_token: res.body.token,
+			password: 'wrong_password'
+		});
+		console.log('## RESULT ##', result.statusCode);
+		expect(result.statusCode).toEqual(401);
+	});
+});
+
+describe('/DELETE/user/:id', () => {
+	test('delete a user, success', async () => {
+		let res = await request(app).post('/login').send({
+			username: test_user.username,
+			password: test_user.password
+		});
+
+		let result = await request(app)
+			.delete(`/users/${res.body.id}`)
+			.send({ _token: res.body.token });
+
+		expect(result.statusCode).toEqual(200);
+		expect(result.body).toHaveProperty('message', `User: ${res.body.id} has been deleted`);
+	});
+	test('delete a user, fail', async () => {
+		let fake_token = '.1234abcde';
+		let result = await request(app).delete(`/users/fake_user_id`).send({
+			_token: fake_token
+		});
+
+		expect(result.statusCode).toEqual(401);
+		expect(result.body).toHaveProperty('error', {
+			message: 'Unauthorized, invalid token!',
+			status: 401
+		});
+	});
 });

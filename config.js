@@ -1,4 +1,4 @@
-/** Shared config for application; can be req'd many places. */
+/** Shared config for application; can be required in many places. */
 
 require('dotenv').config();
 
@@ -9,17 +9,15 @@ const PORT = +process.env.PORT || 3001;
 // database is:
 //
 // - on Heroku, get from env var DATABASE_URL
-// - in testing, 'capstone2-test'
-// - else: 'capstone2'
+// - in testing, 'watchlist_db-test'
+// - else: 'watchlist_db'
 
 let DB_URI;
 
 if (process.env.NODE_ENV === 'test') {
-	// DB_URI = 'capstone2-test';
-	DB_URI = 'movies_db_test';
+	DB_URI = 'watchlist_test_db';
 } else {
-	// DB_URI = process.env.DATABASE_URL || 'capstone2';
-	DB_URI = process.env.DATABASE_URL || 'movies_db';
+	DB_URI = process.env.DATABASE_URL || 'watchlist_db';
 }
 
 console.log('Using database', DB_URI);
