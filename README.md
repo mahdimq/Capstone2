@@ -59,19 +59,8 @@ The Watchlist app uses multiple endpoints from the TMDB api.
 
 **Deployment**
 
-- Deployed on Heroku Server
-- Gunicorn server
-
-### Local Environment
-
-To get the code on your local machine, create a PostgreSQL database, and set up a virtual environment in Python, and get an API key from Spoonacular API.
-
-```
-> git clone https://github.com/mahdimq/Foodie.git
-> python -m venv venv
-> pip install -r requirements.txt
-> source venv/bin/activate
-```
+- Deployed Frontend on Netlify
+- Deployed Backend on Heroku Server
 
 ### Improve or Contribute
 
