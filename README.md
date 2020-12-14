@@ -20,17 +20,13 @@ To save a movie to the watchlist, the user needs to register/login. Once the use
 - Create secure user accounts using the B-crypt hash.
 - Users can add and remove movies from their watchlist.
 
-### Demo
-
-![theWatchlist Demo]()
-
 ### Data
 
 The Watchlist app uses multiple endpoints from the TMDB api.
 
 ### Schema Design
 
-![Schema Design](./images/WatchlistSchema.png)
+![Schema Design](/WatchlistSchema.png)
 
 ### Technology Used
 
