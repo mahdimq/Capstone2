@@ -1,4 +1,4 @@
-# The Watchlist
+# <img src="https://raw.githubusercontent.com/theWatchlist-Frontend/blob/main/src/images/theWatchlist.png" alt="watchlist logo" width="150px" height="auto">
 
 **App Deployed at**
 [theWatchlist]()
@@ -30,7 +30,7 @@ The Watchlist app uses multiple endpoints from the TMDB api.
 
 ### Schema Design
 
-![Schema Design](./images/WatchlistSchema.png)
+![Schema Design](./WatchlistSchema.png)
 
 ### Technology Used
 

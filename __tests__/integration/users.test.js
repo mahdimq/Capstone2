@@ -8,7 +8,6 @@ const db = require('../../db');
 
 // set up the test:
 let test_user;
-let token;
 beforeEach(async () => {
 	// create a couple of users
 	test_user = {
@@ -32,7 +31,7 @@ afterAll(async () => {
 
 describe('Signup a user', () => {
 	test('sign up a user, success', async () => {
-		let test_user2 = {
+		const test_user2 = {
 			username: 'test2',
 			password: 'password',
 			firstname: 'test_firstname',
@@ -40,7 +39,7 @@ describe('Signup a user', () => {
 			email: 'test2@demo.com'
 		};
 
-		let result = await request(app).post('/users/').send(test_user2);
+		const result = await request(app).post('/users/').send(test_user2);
 		expect(result.statusCode).toEqual(201);
 		expect(result.body).toEqual(expect.anything());
 	});
@@ -48,7 +47,7 @@ describe('Signup a user', () => {
 
 describe('/login', () => {
 	test('log in a user, success', async () => {
-		let result = await request(app).post('/login').send({
+		const result = await request(app).post('/login').send({
 			username: test_user.username,
 			password: test_user.password
 		});
@@ -57,7 +56,7 @@ describe('/login', () => {
 	});
 
 	test('log in a user, schema fail, not authenticated', async () => {
-		let result = await request(app).post('/login').send({
+		const result = await request(app).post('/login').send({
 			username: 'username'
 		});
 		expect(result.statusCode).toEqual(401);
@@ -66,16 +65,16 @@ describe('/login', () => {
 
 describe('GET/users', () => {
 	test('get users, success', async () => {
-		let res = await request(app).post('/login').send({
+		const res = await request(app).post('/login').send({
 			username: test_user.username,
 			password: test_user.password
 		});
 
-		let result = await request(app).get('/users').send({ _token: res.body.token });
+		const result = await request(app).get('/users').send({ _token: res.body.token });
 		expect(result.statusCode).toEqual(200);
 	});
 	test('get users, unauthorized', async () => {
-		let result = await request(app).get('/users').send({});
+		const result = await request(app).get('/users').send({});
 		expect(result.statusCode).toEqual(401);
 		expect(result.body).toHaveProperty('error', {
 			message: 'You must authenticate first.',
@@ -86,21 +85,21 @@ describe('GET/users', () => {
 
 describe('GET/users/:id', () => {
 	test('get one user, success', async () => {
-		let res = await request(app).post('/login').send({
+		const res = await request(app).post('/login').send({
 			username: test_user.username,
 			password: test_user.password
 		});
 
-		let result = await request(app).get(`/users/${res.body.id}`).send({ _token: res.body.token });
+		const result = await request(app).get(`/users/${res.body.id}`).send({ _token: res.body.token });
 		expect(result.statusCode).toEqual(200);
 	});
 	test('get user, unauthorized', async () => {
-		let res = await request(app).post('/login').send({
+		const res = await request(app).post('/login').send({
 			username: test_user.username,
 			password: test_user.password
 		});
 
-		let result = await request(app).get(`/users/${res.body.id}`).send({});
+		const result = await request(app).get(`/users/${res.body.id}`).send({});
 		expect(result.statusCode).toEqual(401);
 		expect(result.body).toHaveProperty('error', {
 			message: 'Unauthorized, invalid token!',
@@ -111,11 +110,11 @@ describe('GET/users/:id', () => {
 
 describe('PATCH/users/:id', () => {
 	test("edit a user's username, success", async () => {
-		let res = await request(app).post('/login').send({
+		const res = await request(app).post('/login').send({
 			username: test_user.username,
 			password: test_user.password
 		});
-		let result = await request(app).patch(`/users/${res.body.id}`).send({
+		const result = await request(app).patch(`/users/${res.body.id}`).send({
 			firstname: 'newTestFirstname',
 			password: test_user.password,
 			_token: res.body.token
@@ -126,29 +125,28 @@ describe('PATCH/users/:id', () => {
 	});
 
 	test("edit a user's , schema fail", async () => {
-		let res = await request(app).post('/login').send({
+		const res = await request(app).post('/login').send({
 			username: test_user.username,
 			password: test_user.password
 		});
 
-		let result = await request(app).patch(`/users/${res.body.id}`).send({
+		const result = await request(app).patch(`/users/${res.body.id}`).send({
 			firstname: 'fakeFirstname',
 			_token: res.body.token,
 			password: 'wrong_password'
 		});
-		console.log('## RESULT ##', result.statusCode);
 		expect(result.statusCode).toEqual(401);
 	});
 });
 
 describe('/DELETE/user/:id', () => {
 	test('delete a user, success', async () => {
-		let res = await request(app).post('/login').send({
+		const res = await request(app).post('/login').send({
 			username: test_user.username,
 			password: test_user.password
 		});
 
-		let result = await request(app)
+		const result = await request(app)
 			.delete(`/users/${res.body.id}`)
 			.send({ _token: res.body.token });
 
@@ -156,8 +154,8 @@ describe('/DELETE/user/:id', () => {
 		expect(result.body).toHaveProperty('message', `User: ${res.body.id} has been deleted`);
 	});
 	test('delete a user, fail', async () => {
-		let fake_token = '.1234abcde';
-		let result = await request(app).delete(`/users/fake_user_id`).send({
+		const fake_token = '.1234abcde';
+		const result = await request(app).delete(`/users/fake_user_id`).send({
 			_token: fake_token
 		});
 

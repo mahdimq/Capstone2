@@ -9,7 +9,6 @@ const router = express.Router({ mergeParams: true });
 
 // ADD NEW MOVIE TO DATABASE /movies/add
 router.post('/add', isAuthenticated, async (req, res, next) => {
-	console.log('REQ.BODY IN ADDMOVIE', req.body);
 	try {
 		const {
 			id,

@@ -24,7 +24,8 @@ const getToken = (user) => {
 		username: user.username,
 		email: user.email
 	};
-	return jwt.sign(payload, SECRET, { expiresIn: '12h' });
+	return jwt.sign(payload, SECRET);
+	// return jwt.sign(payload, SECRET, { expiresIn: '12h' });
 };
 
 module.exports = getToken;
