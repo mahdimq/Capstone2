@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS watchlist_db;
-CREATE DATABASE watchlist_db;
+DROP DATABASE IF EXISTS watchlist;
+CREATE DATABASE watchlist;
 
-\c watchlist_db;
+\c watchlist;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS movies;
