@@ -31,7 +31,6 @@ const corsOptions = {
 	}
 };
 
-// end
 app.use(cors(corsOptions));
 
 // add logging system
