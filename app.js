@@ -7,31 +7,31 @@ const morgan = require('morgan');
 const ExpressError = require('./helpers/expressError');
 
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
-const whitelist = [
-	'http://localhost:3000',
-	'https://thewatchlist.netlify.app',
-	'https://thewatchlist-backend.herokuapp.com/'
-]; // list of allowed domains
+// const whitelist = [
+// 	'http://localhost:3000',
+// 	'https://thewatchlist.netlify.app'
+// 	'https://thewatchlist-backend.herokuapp.com/'
+// ]; // list of allowed domains
 
-const corsOptions = {
-	origin: function (origin, callback) {
-		if (!origin) {
-			return callback(null, true);
-		}
+// const corsOptions = {
+// 	origin: function (origin, callback) {
+// 		if (!origin) {
+// 			return callback(null, true);
+// 		}
 
-		if (whitelist.indexOf(origin) === -1) {
-			var msg =
-				'The CORS policy for this site does not ' +
-				'allow access from the specified Origin.';
-			return callback(new ExpressError(msg), false);
-		}
-		return callback(null, true);
-	}
-};
+// 		if (whitelist.indexOf(origin) === -1) {
+// 			var msg =
+// 				'The CORS policy for this site does not ' +
+// 				'allow access from the specified Origin.';
+// 			return callback(new ExpressError(msg), false);
+// 		}
+// 		return callback(null, true);
+// 	}
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // add logging system
 // app.use(morgan('dev'));
